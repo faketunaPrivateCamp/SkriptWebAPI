@@ -12,6 +12,7 @@ import jp.faketuna.addon.skriptwebapi.api.server.objects.Header
 import jp.faketuna.addon.skriptwebapi.api.server.objects.SenderAddress
 import jp.faketuna.addon.skriptwebapi.api.server.objects.UserAgent
 import org.bukkit.event.Event
+import javax.xml.ws.spi.http.HttpExchange
 
 class EvtGetRequest: SkriptEvent() {
 
@@ -37,6 +38,11 @@ class EvtGetRequest: SkriptEvent() {
             EventValues.registerEventValue(GetRequestEvent::class.java, SenderAddress::class.java, object: Getter<SenderAddress, GetRequestEvent>(){
                 override fun get(e: GetRequestEvent): SenderAddress {
                     return e.senderAddress
+                }
+            }, 0)
+            EventValues.registerEventValue(GetRequestEvent::class.java, HttpExchange::class.java, object: Getter<HttpExchange, GetRequestEvent>(){
+                override fun get(e: GetRequestEvent): HttpExchange {
+                    return e.exchange
                 }
             }, 0)
         }

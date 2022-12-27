@@ -7,6 +7,12 @@ import jp.faketuna.addon.skriptwebapi.api.server.objects.UserAgent;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
+import javax.xml.ws.spi.http.HttpExchange;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.stream.Collectors;
+
 public class GetRequestEvent extends Event {
 
     public static final HandlerList HANDLERS = new HandlerList();
@@ -14,6 +20,7 @@ public class GetRequestEvent extends Event {
     private final Header header;
     private final UserAgent userAgent;
     private final SenderAddress senderAddress;
+    private final HttpExchange exchange;
 
 
     public static HandlerList getHandlerList() {
@@ -25,14 +32,18 @@ public class GetRequestEvent extends Event {
         return HANDLERS;
     }
 
-    public GetRequestEvent(String body,
-                           String header,
-                           String userAgent,
-                           String senderAddress){
-        this.body = new Body(body);
-        this.header = new Header(header);
-        this.userAgent = new UserAgent(userAgent);
-        this.senderAddress = new SenderAddress(senderAddress);
+    public GetRequestEvent(HttpExchange exchange) throws IOException {
+
+
+
+        this.exchange = exchange;
+        this.body = new Body(new BufferedReader(
+                new InputStreamReader(exchange.getRequestBody()))
+                .lines()
+                .collect(Collectors.joining()));
+        this.header = new Header(exchange.getRequestHeaders());
+        this.userAgent = new UserAgent(exchange.getRequestHeader("User-Agent"));
+        this.senderAddress = new SenderAddress(exchange.getRequestHeader("host"));
     }
 
     public Body getBody(){
@@ -49,6 +60,10 @@ public class GetRequestEvent extends Event {
 
     public SenderAddress getSenderAddress(){
         return this.senderAddress;
+    }
+
+    public HttpExchange getExchange() {
+        return this.exchange;
     }
 
 }

@@ -7,6 +7,7 @@ import jp.faketuna.addon.skriptwebapi.api.server.objects.Body
 import jp.faketuna.addon.skriptwebapi.api.server.objects.Header
 import jp.faketuna.addon.skriptwebapi.api.server.objects.SenderAddress
 import jp.faketuna.addon.skriptwebapi.api.server.objects.UserAgent
+import javax.xml.ws.spi.http.HttpExchange
 
 class Types {
 
@@ -40,6 +41,12 @@ class Types {
                 .usage("Sender Address of request")
                 .user("(address|sender ?address)")
                 .defaultExpression(EventValueExpression(SenderAddress::class.java)))
+
+            Classes.registerClass(ClassInfo(HttpExchange::class.java, "httpexchange")
+                .name("HttpExchange")
+                .usage("Http request instance")
+                .user("http ?exchange")
+                .defaultExpression(EventValueExpression(HttpExchange::class.java)))
         }
     }
 }
