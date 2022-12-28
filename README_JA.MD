@@ -2,7 +2,14 @@
 
 [English readme available](/README.MD)
 
+# 免責事項
+
+
+## 目次
+
 - [SkriptWebAPI - SKeb](#skriptwebapi---skeb)
+- [免責事項](#免責事項)
+  - [目次](#目次)
   - [概要](#概要)
   - [機能](#機能)
   - [インストール](#インストール)
@@ -24,8 +31,9 @@ Skriptを使用してMinecraftサーバーにAPIサーバー設置したりと�
 
 - HTTPのAPIサーバー建てられます
 - Web request送れます
-- 
 ## インストール
+
+Spigotサーバーではおそらく動作しません。 Paperサーバーまたはその派生サーバーをご利用ください。
 
 1. [ここ](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases) から `SkriptWebAPI-<バージョン>.jar` をダウンロードしてください。 数字が大きい方が新しいです。
 2. ダウンロードしたjarファイルをサーバーのpluginsフォルダに入れてください

@@ -2,7 +2,15 @@
 
 [日本語のREADMEあります](/README_JA.MD)
 
+## Disclaimer
+
+I will not responsible for loss, trouble etc. caused by using this plugin. Please use at your own risk.
+
+## Index
+
 - [SkriptWebAPI - SKeb](#skriptwebapi---skeb)
+  - [Disclaimer](#disclaimer)
+  - [Index](#index)
   - [About](#about)
   - [Features](#features)
   - [Install](#install)
@@ -26,6 +34,8 @@ Allow to use API server feature, Web Request feature easily on Minecraft servers
 - Can send Web Request
 
 ## Install
+
+Might not be work in spigot server. Please use Paper server or Paper fork server.
 
 1. Download `SkriptWebAPI-<Version>.jar` from [here](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases). Lager number mean recent.
 2. Put your downloaded jar to server plugins folder
