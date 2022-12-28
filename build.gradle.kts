@@ -43,7 +43,6 @@ bukkit {
         register("skebtest") {
             description = "test command"
             aliases = listOf("skebt")
-            permission = ""
             usage = "usage"
         }
         // ...

@@ -6,10 +6,10 @@ import ch.njol.skript.lang.SkriptEvent
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.registrations.EventValues
 import ch.njol.skript.util.Getter
+import com.sun.net.httpserver.HttpExchange
 import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.objects.*
 import org.bukkit.event.Event
-import javax.xml.ws.spi.http.HttpExchange
 
 class EvtGetRequest: SkriptEvent() {
 
@@ -55,7 +55,6 @@ class EvtGetRequest: SkriptEvent() {
     }
 
     override fun init(exprs: Array<out Literal<*>>?, matchedPattern: Int, parser: SkriptParser.ParseResult?): Boolean {
-
         return true
     }
 

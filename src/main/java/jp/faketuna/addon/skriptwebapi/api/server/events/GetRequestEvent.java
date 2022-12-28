@@ -1,12 +1,11 @@
 package jp.faketuna.addon.skriptwebapi.api.server.events;
 
+import com.sun.net.httpserver.HttpExchange;
 import jp.faketuna.addon.skriptwebapi.api.server.objects.*;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-import javax.xml.ws.spi.http.HttpExchange;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
@@ -20,6 +19,16 @@ public class GetRequestEvent extends Event {
     private final HttpExchange exchange;
     private final ContextPath contextPath;
 
+    private String bodyData;
+
+    public void setBodyData(String body){
+        this.bodyData = body;
+    }
+
+    public String getBodyData(){
+        return bodyData;
+    }
+
 
     public static HandlerList getHandlerList() {
         return HANDLERS;
@@ -30,20 +39,16 @@ public class GetRequestEvent extends Event {
         return HANDLERS;
     }
 
-    public GetRequestEvent(HttpExchange exchange) throws IOException {
-
-
-
+    public GetRequestEvent(HttpExchange exchange){
         this.exchange = exchange;
         this.body = new Body(new BufferedReader(
                 new InputStreamReader(exchange.getRequestBody()))
                 .lines()
                 .collect(Collectors.joining()));
         this.header = new Header(exchange.getRequestHeaders());
-        this.userAgent = new UserAgent(exchange.getRequestHeader("User-Agent"));
-        this.senderAddress = new SenderAddress(exchange.getRequestHeader("host"));
-        this.contextPath = new ContextPath(exchange.getContextPath());
-
+        this.userAgent = new UserAgent(header.getHeader().get("User-Agent").get(0));
+        this.senderAddress = new SenderAddress(header.getHeader().get("host").get(0));
+        this.contextPath = new ContextPath(exchange.getRequestURI().getPath());
     }
 
     public Body getBody(){

@@ -27,6 +27,7 @@ class EffStopHttpServer: Effect() {
     override fun execute(e: Event?) {
         if (HttpAPIServer.Server.isRunning()){
             HttpAPIServer.Server.stop()
+            HttpAPIServer.Server.setRunningState(false)
         }
     }
 }

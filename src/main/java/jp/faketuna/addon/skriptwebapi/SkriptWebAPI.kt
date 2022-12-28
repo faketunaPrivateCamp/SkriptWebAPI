@@ -3,17 +3,29 @@ package jp.faketuna.addon.skriptwebapi
 import ch.njol.skript.Skript
 import ch.njol.skript.SkriptAddon
 import jp.faketuna.addon.skriptwebapi.api.server.commands.TestCommands
-import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
 import jp.faketuna.addon.skriptwebapi.elements.Types
 import org.bukkit.plugin.java.JavaPlugin
 
 class SkriptWebAPI: JavaPlugin() {
+
+    object Static{
+        private lateinit var plugin: JavaPlugin
+
+        fun setPlugin(plugin: JavaPlugin){
+            this.plugin = plugin
+        }
+
+        fun getPlugin(): JavaPlugin{
+            return this.plugin
+        }
+    }
 
     private val instance: SkriptWebAPI = this
     private lateinit var addon: SkriptAddon
 
 
     override fun onEnable() {
+        Static.setPlugin(this)
         val skript = server.pluginManager.getPlugin("Skript")
 
         if (skript == null) {

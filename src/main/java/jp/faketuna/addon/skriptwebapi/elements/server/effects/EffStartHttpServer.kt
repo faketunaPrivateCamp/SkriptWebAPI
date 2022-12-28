@@ -13,7 +13,7 @@ class EffStartHttpServer: Effect() {
 
     companion object{
         init {
-            Skript.registerEffect(EffStartHttpServer::class.java, "start http [api] server [in port %-number%]")
+            Skript.registerEffect(EffStartHttpServer::class.java, "start http [api] server [in port %-integer%]")
         }
     }
 
@@ -33,6 +33,7 @@ class EffStartHttpServer: Effect() {
 
         if (!HttpAPIServer.Server.isRunning()){
             HttpAPIServer.Server.run(sp ?: SKebConfig.Config.getHttpPort())
+            HttpAPIServer.Server.setRunningState(true)
         }
     }
 }

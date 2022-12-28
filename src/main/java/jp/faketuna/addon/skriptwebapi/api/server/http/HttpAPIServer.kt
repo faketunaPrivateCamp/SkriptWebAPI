@@ -1,9 +1,9 @@
 package jp.faketuna.addon.skriptwebapi.api.server.http
 
+import com.sun.net.httpserver.HttpHandler
 import com.sun.net.httpserver.HttpServer
 import java.lang.Exception
 import java.net.InetSocketAddress
-import javax.xml.ws.spi.http.HttpHandler
 
 class HttpAPIServer {
     object Server{
@@ -14,11 +14,11 @@ class HttpAPIServer {
         fun isRunning(): Boolean {
             return this.isRunning
         }
-        fun setRunning(b: Boolean){
+        fun setRunningState(b: Boolean){
             this.isRunning = b
         }
 
-        fun getHttpHandler(): HttpHandler{
+        fun getHttpHandler(): HttpHandler {
             return this.httpHandler
         }
         fun setHttpHandler(httpHandler: HttpHandler){
@@ -43,6 +43,7 @@ class HttpAPIServer {
             if (isRunning()) return false
             try {
                 val httpServer = HttpServer.create(InetSocketAddress(port), 0)
+                httpServer.createContext("/", HttpAPIHandler())
                 httpServer.start()
                 setHttpServer(httpServer)
             } catch (e: Exception){

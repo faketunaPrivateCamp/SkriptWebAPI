@@ -3,8 +3,9 @@ package jp.faketuna.addon.skriptwebapi.elements
 import ch.njol.skript.classes.ClassInfo
 import ch.njol.skript.expressions.base.EventValueExpression
 import ch.njol.skript.registrations.Classes
+import com.sun.net.httpserver.HttpExchange
+import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.objects.*
-import javax.xml.ws.spi.http.HttpExchange
 
 class Types {
 
@@ -48,8 +49,13 @@ class Types {
             Classes.registerClass(ClassInfo(HttpExchange::class.java, "httpexchange")
                 .name("HttpExchange")
                 .usage("Http request instance")
-                .user("http ?exchange")
+                .user("(request|http ?exchange)")
                 .defaultExpression(EventValueExpression(HttpExchange::class.java)))
+
+            Classes.registerClass(ClassInfo(GetRequestEvent::class.java, "getrequestevent")
+                .name("GetRequestEvent")
+                .usage("Get request Event")
+                .defaultExpression(EventValueExpression(GetRequestEvent::class.java)))
 
         }
     }
