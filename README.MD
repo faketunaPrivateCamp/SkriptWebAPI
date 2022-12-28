@@ -37,6 +37,8 @@ Allow to use API server feature, Web Request feature easily on Minecraft servers
 
 Might not be work in spigot server. Please use Paper server or Paper fork server.
 
+Now only work with 1.19.3 server. Older version is supporting soon.
+
 1. Download `SkriptWebAPI-<Version>.jar` from [here](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases). Lager number mean recent.
 2. Put your downloaded jar to server plugins folder
 3. Run and ready to use

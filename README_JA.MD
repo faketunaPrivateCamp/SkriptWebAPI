@@ -35,6 +35,8 @@ Skriptを使用してMinecraftサーバーにAPIサーバー設置したりと�
 
 Spigotサーバーではおそらく動作しません。 Paperサーバーまたはその派生サーバーをご利用ください。
 
+現在は1.19.3でのみ動作します。今後古いバージョンもサポートする予定です。
+
 1. [ここ](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases) から `SkriptWebAPI-<バージョン>.jar` をダウンロードしてください。 数字が大きい方が新しいです。
 2. ダウンロードしたjarファイルをサーバーのpluginsフォルダに入れてください
 3. 起動したら使用可能になります
