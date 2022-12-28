@@ -2,6 +2,7 @@ package jp.faketuna.addon.skriptwebapi
 
 import ch.njol.skript.Skript
 import ch.njol.skript.SkriptAddon
+import jp.faketuna.addon.skriptwebapi.api.server.commands.TestCommands
 import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
 import jp.faketuna.addon.skriptwebapi.elements.Types
 import org.bukkit.plugin.java.JavaPlugin
@@ -39,6 +40,10 @@ class SkriptWebAPI: JavaPlugin() {
         loadAPIServerElements()
         loadWebRequestElements()
         Types()
+    }
+
+    private fun loadMisc(){
+        getCommand("skebtest")!!.setExecutor(TestCommands())
     }
 
     private fun loadAPIServerElements(){

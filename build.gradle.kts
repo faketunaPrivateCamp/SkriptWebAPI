@@ -39,17 +39,17 @@ bukkit {
     depend = listOf("Skript")
     prefix = "SKeb"
 
-    /*
     commands {
-        register("cmd") {
-            description = "command description"
-            aliases = listOf("alias")
-            permission = "permi.ssion"
+        register("skebtest") {
+            description = "test command"
+            aliases = listOf("skebt")
+            permission = ""
             usage = "usage"
         }
         // ...
     }
 
+    /*
     permissions {
         register("per.*") {
             children = listOf("per.m")

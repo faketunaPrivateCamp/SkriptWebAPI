@@ -1,9 +1,6 @@
 package jp.faketuna.addon.skriptwebapi.api.server.events;
 
-import jp.faketuna.addon.skriptwebapi.api.server.objects.Body;
-import jp.faketuna.addon.skriptwebapi.api.server.objects.Header;
-import jp.faketuna.addon.skriptwebapi.api.server.objects.SenderAddress;
-import jp.faketuna.addon.skriptwebapi.api.server.objects.UserAgent;
+import jp.faketuna.addon.skriptwebapi.api.server.objects.*;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
@@ -21,6 +18,7 @@ public class GetRequestEvent extends Event {
     private final UserAgent userAgent;
     private final SenderAddress senderAddress;
     private final HttpExchange exchange;
+    private final ContextPath contextPath;
 
 
     public static HandlerList getHandlerList() {
@@ -44,6 +42,8 @@ public class GetRequestEvent extends Event {
         this.header = new Header(exchange.getRequestHeaders());
         this.userAgent = new UserAgent(exchange.getRequestHeader("User-Agent"));
         this.senderAddress = new SenderAddress(exchange.getRequestHeader("host"));
+        this.contextPath = new ContextPath(exchange.getContextPath());
+
     }
 
     public Body getBody(){
@@ -64,6 +64,10 @@ public class GetRequestEvent extends Event {
 
     public HttpExchange getExchange() {
         return this.exchange;
+    }
+
+    public ContextPath getContextPath() {
+        return this.contextPath;
     }
 
 }

@@ -7,10 +7,7 @@ import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.registrations.EventValues
 import ch.njol.skript.util.Getter
 import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
-import jp.faketuna.addon.skriptwebapi.api.server.objects.Body
-import jp.faketuna.addon.skriptwebapi.api.server.objects.Header
-import jp.faketuna.addon.skriptwebapi.api.server.objects.SenderAddress
-import jp.faketuna.addon.skriptwebapi.api.server.objects.UserAgent
+import jp.faketuna.addon.skriptwebapi.api.server.objects.*
 import org.bukkit.event.Event
 import javax.xml.ws.spi.http.HttpExchange
 
@@ -38,6 +35,11 @@ class EvtGetRequest: SkriptEvent() {
             EventValues.registerEventValue(GetRequestEvent::class.java, SenderAddress::class.java, object: Getter<SenderAddress, GetRequestEvent>(){
                 override fun get(e: GetRequestEvent): SenderAddress {
                     return e.senderAddress
+                }
+            }, 0)
+            EventValues.registerEventValue(GetRequestEvent::class.java, ContextPath::class.java, object: Getter<ContextPath, GetRequestEvent>(){
+                override fun get(e: GetRequestEvent): ContextPath {
+                    return e.contextPath
                 }
             }, 0)
             EventValues.registerEventValue(GetRequestEvent::class.java, HttpExchange::class.java, object: Getter<HttpExchange, GetRequestEvent>(){
