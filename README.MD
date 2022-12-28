@@ -150,4 +150,7 @@ on receive get request:
 
 ## Todo
 
+- Add and allow to send POST web request
+- Add and allow to send PUT web request
+- Add and allow to send DELETE web request
 - Test and allow to load in 1.12.2 ~ 1.19.2
