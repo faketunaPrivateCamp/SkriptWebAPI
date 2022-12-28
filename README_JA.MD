@@ -23,6 +23,12 @@ Skriptを使用してMinecraftサーバーにAPIサーバー設置したりと�
 
 - HTTPのAPIサーバー建てられます
 - Web request送れます
+- 
+## インストール
+
+1. [ここ](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases) から `SkriptWebAPI-<バージョン>.jar` をダウンロードしてください。 数字が大きい方が新しいです。
+2. ダウンロードしたjarファイルをサーバーのpluginsフォルダに入れてください
+3. 起動したら使用可能になります
 
 ## 使い方とか
 

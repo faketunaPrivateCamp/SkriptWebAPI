@@ -24,6 +24,12 @@ Allow to use API server feature, Web Request feature easily on Minecraft servers
 - Allow to build HTTP API Server
 - Can send Web Request
 
+## Install
+
+1. Download `SkriptWebAPI-<Version>.jar` from [here](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases). Lager number mean recent.
+2. Put your downloaded jar to server plugins folder
+3. Run and ready to use
+
 ## Documentation
 
 Not completed
