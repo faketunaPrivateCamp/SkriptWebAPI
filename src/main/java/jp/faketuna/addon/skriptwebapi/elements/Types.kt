@@ -4,7 +4,10 @@ import ch.njol.skript.classes.ClassInfo
 import ch.njol.skript.expressions.base.EventValueExpression
 import ch.njol.skript.registrations.Classes
 import com.sun.net.httpserver.HttpExchange
+import jp.faketuna.addon.skriptwebapi.api.server.events.DeleteRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
+import jp.faketuna.addon.skriptwebapi.api.server.events.PostRequestEvent
+import jp.faketuna.addon.skriptwebapi.api.server.events.PutRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.objects.*
 
 class Types {
@@ -56,6 +59,21 @@ class Types {
                 .name("GetRequestEvent")
                 .usage("Get request Event")
                 .defaultExpression(EventValueExpression(GetRequestEvent::class.java)))
+
+            Classes.registerClass(ClassInfo(PostRequestEvent::class.java, "postrequestevent")
+                .name("PostRequestEvent")
+                .usage("Post request Event")
+                .defaultExpression(EventValueExpression(PostRequestEvent::class.java)))
+
+            Classes.registerClass(ClassInfo(PutRequestEvent::class.java, "putrequestevent")
+                .name("PutRequestEvent")
+                .usage("Put request Event")
+                .defaultExpression(EventValueExpression(PutRequestEvent::class.java)))
+
+            Classes.registerClass(ClassInfo(DeleteRequestEvent::class.java, "deleterequestevent")
+                .name("DeleteRequestEvent")
+                .usage("Delete request Event")
+                .defaultExpression(EventValueExpression(DeleteRequestEvent::class.java)))
 
         }
     }
