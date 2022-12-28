@@ -5,6 +5,7 @@
 - [SkriptWebAPI - SKeb](#skriptwebapi---skeb)
   - [概要](#概要)
   - [機能](#機能)
+  - [インストール](#インストール)
   - [使い方とか](#使い方とか)
     - [重要](#重要)
     - [Effects](#effects)
@@ -55,6 +56,7 @@ on receive get request:
     reply {_request} as not found
 ```
 
+もしも上の文法を強制させる方法を知っている人が居たらissueを開いていただくと幸いです
 
 
 ### Effects
@@ -69,6 +71,9 @@ on receive get request:
 ### Events
 ```sk
 0.0.1+ [SKeb] [server] receive get request
+0.0.1+ [SKeb] [server] receive post request
+0.0.1+ [SKeb] [server] receive put request
+0.0.1+ [SKeb] [server] receive delete request
 ```
 
 ### Event values in all receive request event
@@ -86,6 +91,9 @@ on receive get request:
 ### Expressions
 ```sk
 0.0.1+ [SKeb] %contextpath% parsed as text
+0.0.1+ [SKeb] %senderaddress% parsed as text
+0.0.1+ [SKeb] %useragent% parsed as text
+0.0.1+ [SKeb] %body% parsed as text
 ```
 
 
@@ -96,6 +104,12 @@ on receive get request:
     set {_path} to event-path parsed as text
     set {_body} to ""
 
+    if ({_path} is "/mirror"):
+        set {_body} to event-body parsed as text
+        set {_request}'s response header "Content-Type" to "application/json"
+        reply {_request} with body {_body} and response code 200
+        exit
+        
     if ({_path} is "/test"):
         set {_body} to "{""test"":""done""}"
         set {_request}'s response header "Content-Type" to "application/json"
@@ -124,10 +138,4 @@ on receive get request:
 
 ## やることリスト
 
-- PostRequestEvent を追加する
-- Add DeleteRequestEvent を追加する
-- Add PutRequestEvent を追加する
-- POSTリクエストを送れるようにする
-- PUTリクエストを送れるようにする
-- DELETEリクエストを送れるようにする
 - 1.12.2 ~ 1.19.2での動作を確認しそれらのバージョンで動作できるようにする
