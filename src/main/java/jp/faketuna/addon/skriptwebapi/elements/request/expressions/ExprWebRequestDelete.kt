@@ -17,14 +17,14 @@ import java.net.URL
 import java.nio.charset.Charset
 import kotlin.coroutines.suspendCoroutine
 
-class ExprWebRequestGet: SimpleExpression<String>() {
+class ExprWebRequestDelete: SimpleExpression<String>() {
 
     companion object{
         init {
-            Skript.registerExpression(ExprWebRequestGet::class.java,
+            Skript.registerExpression(ExprWebRequestDelete::class.java,
                 String::class.java,
                 ExpressionType.COMBINED,
-                "response of get request to [url] %string% [[(with|and)] header %-header%] [[(with|and)] body %-string%]"
+                "response of delete request to [url] %string% [(with|and)] header %header% [(with|and)] body %string%"
             )
         }
     }
@@ -43,12 +43,8 @@ class ExprWebRequestGet: SimpleExpression<String>() {
 
     override fun init(exprs: Array<out Expression<*>>, matchedPattern: Int, isDelayed: Kleenean?, parser: SkriptParser.ParseResult?): Boolean {
         targetURI = exprs[0] as Expression<String>
-        if (exprs[1] != null){
-            requestHeader = exprs[1] as Expression<Header>
-        }
-        if (exprs[2] != null){
-            requestBody = exprs[2] as Expression<String>
-        }
+        requestHeader = exprs[1] as Expression<Header>
+        requestBody = exprs[2] as Expression<String>
         return true
     }
 
@@ -72,21 +68,14 @@ class ExprWebRequestGet: SimpleExpression<String>() {
     private fun sendRequest(e: Event): String?{
         val uri = targetURI!!.getSingle(e) ?: return null
         val url = URL(uri)
-        var header: Header? = null
-        var body: String? = null
-
-        if (::requestHeader.isInitialized){
-            header = requestHeader.getSingle(e)
-        }
-        if (::requestBody.isInitialized){
-            body = requestBody.getAll(e).toString()
-        }
+        val header: Header? = requestHeader.getSingle(e)
+        val body: String? = requestBody.getSingle(e)
 
         var result: String? = null
         runBlocking {
             withContext(Dispatchers.IO) {
                 with(url.openConnection() as HttpURLConnection) {
-                    requestMethod = "GET"
+                    requestMethod = "DELETE"
                     connectTimeout = 1000
                     if (header != null) {
                         for (map in header.getHeader()) {

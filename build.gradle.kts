@@ -21,6 +21,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation(kotlin("stdlib-jdk8"))
     compileOnly(files("libs/Skript-2.6.4.jar"))
     compileOnly("io.papermc.paper:paper-api:${mcVersion}-R0.1-SNAPSHOT")
