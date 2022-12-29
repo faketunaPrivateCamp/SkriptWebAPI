@@ -32,5 +32,6 @@ class HttpAPIHandler: HttpHandler {
                 Bukkit.getPluginManager().callEvent(DeleteRequestEvent(exchange))
             }
         }
+        exchange.close()
     }
 }
