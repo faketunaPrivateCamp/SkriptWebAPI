@@ -14,7 +14,7 @@ class ExprSenderAddressParser: SimpleExpression<String>() {
 
     companion object{
         init {
-            Skript.registerExpression(ExprSenderAddressParser::class.java, String::class.java, ExpressionType.COMBINED, "%senderaddress% parsed as text")
+            Skript.registerExpression(ExprSenderAddressParser::class.java, String::class.java, ExpressionType.COMBINED, "%senderaddr% parsed as text")
         }
     }
 

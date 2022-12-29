@@ -36,9 +36,17 @@ class Types {
                 .usage("User Agent of request")
                 .user("(agent|user ?agent)")
                 .defaultExpression(EventValueExpression(UserAgent::class.java)))
-
+/*
             Classes.registerClass(ClassInfo(SenderAddress::class.java, "senderaddress")
                 .name("SenderAddress")
+                .usage("Sender Address of request")
+                .user("(address|sender ?address)")
+                .defaultExpression(EventValueExpression(SenderAddress::class.java)))
+
+
+ */
+            Classes.registerClass(ClassInfo(SenderAddress::class.java, "senderaddr")
+                .name("SenderAddr")
                 .usage("Sender Address of request")
                 .user("(address|sender ?address)")
                 .defaultExpression(EventValueExpression(SenderAddress::class.java)))
