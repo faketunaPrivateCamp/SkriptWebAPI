@@ -45,7 +45,7 @@ Now only work with 1.19.3 server. Older version is supporting soon.
 
 ## Documentation
 
-Not completed
+[![SkriptHubViewTheDocs](http://skripthub.net/static/addon/ViewTheDocsButton.png)](http://skripthub.net/docs/?addon=SkriptWebAPI)
 
 ### Important
 

@@ -43,7 +43,8 @@ Spigotサーバーではおそらく動作しません。 Paperサーバーま�
 
 ## 使い方とか
 
-不完全な可能性あり
+[![SkriptHubViewTheDocs](http://skripthub.net/static/addon/ViewTheDocsButton.png)](http://skripthub.net/docs/?addon=SkriptWebAPI)
+
 
 ### 重要
 
