@@ -13,7 +13,7 @@ class ExprPathParser: SimpleExpression<String>() {
 
     companion object{
         init {
-            Skript.registerExpression(ExprPathParser::class.java, String::class.java, ExpressionType.COMBINED, "%contextpath% parsed as text")
+            Skript.registerExpression(ExprPathParser::class.java, String::class.java, ExpressionType.COMBINED, "[skeb] %contextpath% parsed as text")
         }
     }
 

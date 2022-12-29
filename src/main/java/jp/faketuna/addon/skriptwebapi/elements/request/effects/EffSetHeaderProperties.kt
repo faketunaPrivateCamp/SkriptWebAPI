@@ -12,7 +12,7 @@ class EffSetHeaderProperties: Effect() {
 
     companion object{
         init {
-            Skript.registerEffect(EffSetHeaderProperties::class.java, "set [the] %header%['s] (properties|prop) %string% to %string%")
+            Skript.registerEffect(EffSetHeaderProperties::class.java, "[skeb] set [the] %header%['s] (properties|prop) %string% to %string%")
         }
     }
 

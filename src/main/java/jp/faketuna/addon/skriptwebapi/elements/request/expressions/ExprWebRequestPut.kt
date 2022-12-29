@@ -23,7 +23,7 @@ class ExprWebRequestPut: SimpleExpression<String>() {
             Skript.registerExpression(ExprWebRequestPut::class.java,
                 String::class.java,
                 ExpressionType.COMBINED,
-                "response of put request to [url] %string% [(with|and)] header %header% [(with|and)] body %string%"
+                "[skeb] response of put request to [url] %string% [(with|and)] header %header% [(with|and)] body %string%"
             )
         }
     }

@@ -12,7 +12,7 @@ class EffSend404HttpResponse: Effect() {
 
     companion object{
         init {
-            Skript.registerEffect(EffSend404HttpResponse::class.java, "reply %httpexchange% as (not found|404)")
+            Skript.registerEffect(EffSend404HttpResponse::class.java, "[skeb] reply %httpexchange% as (not found|404)")
         }
     }
 

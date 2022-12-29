@@ -13,7 +13,7 @@ class ExprGetBlankHeader: SimpleExpression<Header>() {
 
     companion object{
         init {
-            Skript.registerExpression(ExprGetBlankHeader::class.java, Header::class.java, ExpressionType.COMBINED, "blank header")
+            Skript.registerExpression(ExprGetBlankHeader::class.java, Header::class.java, ExpressionType.COMBINED, "[skeb] blank header")
         }
     }
 

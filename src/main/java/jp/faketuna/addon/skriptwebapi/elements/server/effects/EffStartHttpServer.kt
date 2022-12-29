@@ -13,7 +13,7 @@ class EffStartHttpServer: Effect() {
 
     companion object{
         init {
-            Skript.registerEffect(EffStartHttpServer::class.java, "start http [api] server [in port %-integer%]")
+            Skript.registerEffect(EffStartHttpServer::class.java, "[skeb] start http [api] server [in port %-integer%]")
         }
     }
 

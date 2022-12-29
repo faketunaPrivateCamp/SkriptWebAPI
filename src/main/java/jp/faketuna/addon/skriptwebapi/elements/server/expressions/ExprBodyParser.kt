@@ -14,7 +14,7 @@ class ExprBodyParser: SimpleExpression<String>() {
 
     companion object{
         init {
-            Skript.registerExpression(ExprBodyParser::class.java, String::class.java, ExpressionType.COMBINED, "%body% parsed as text")
+            Skript.registerExpression(ExprBodyParser::class.java, String::class.java, ExpressionType.COMBINED, "[skeb] %body% parsed as text")
         }
     }
 

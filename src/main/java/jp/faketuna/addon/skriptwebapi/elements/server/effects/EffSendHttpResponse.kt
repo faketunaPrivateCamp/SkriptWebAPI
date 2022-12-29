@@ -13,7 +13,7 @@ class EffSendHttpResponse: Effect() {
 
     companion object{
         init {
-            Skript.registerEffect(EffSendHttpResponse::class.java, "reply %httpexchange% [to [the] request sender] [(with|and) body %-string%] [(with|and) response code %-integer%]")
+            Skript.registerEffect(EffSendHttpResponse::class.java, "[skeb] reply %httpexchange% [to [the] request sender] [(with|and) body %-string%] [(with|and) response code %-integer%]")
         }
     }
 

@@ -12,7 +12,7 @@ class EffSetResponseHeader: Effect() {
 
     companion object{
         init {
-            Skript.registerEffect(EffSetResponseHeader::class.java, "set [the] %httpexchange%['s] response header %string% to %string%")
+            Skript.registerEffect(EffSetResponseHeader::class.java, "[skeb] set [the] %httpexchange%['s] response header %string% to %string%")
         }
     }
 

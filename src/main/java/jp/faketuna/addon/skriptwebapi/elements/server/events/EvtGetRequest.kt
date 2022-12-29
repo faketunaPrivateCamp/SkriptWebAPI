@@ -15,7 +15,7 @@ class EvtGetRequest: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("get request", EvtGetRequest::class.java, GetRequestEvent::class.java, "[server] receive get request")
+            Skript.registerEvent("get request", EvtGetRequest::class.java, GetRequestEvent::class.java, "[skeb] [server] receive get request")
 
             EventValues.registerEventValue(GetRequestEvent::class.java, Body::class.java, object: Getter<Body, GetRequestEvent>(){
                 override fun get(e: GetRequestEvent): Body {

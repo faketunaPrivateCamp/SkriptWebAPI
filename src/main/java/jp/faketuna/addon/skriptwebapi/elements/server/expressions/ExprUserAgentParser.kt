@@ -14,7 +14,7 @@ class ExprUserAgentParser: SimpleExpression<String>() {
 
     companion object{
         init {
-            Skript.registerExpression(ExprUserAgentParser::class.java, String::class.java, ExpressionType.COMBINED, "%useragent% parsed as text")
+            Skript.registerExpression(ExprUserAgentParser::class.java, String::class.java, ExpressionType.COMBINED, "[skeb] %useragent% parsed as text")
         }
     }
 

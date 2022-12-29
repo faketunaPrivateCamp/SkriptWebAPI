@@ -15,7 +15,7 @@ class EvtDeleteRequest: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("delete request", EvtDeleteRequest::class.java, DeleteRequestEvent::class.java, "[server] receive delete request")
+            Skript.registerEvent("delete request", EvtDeleteRequest::class.java, DeleteRequestEvent::class.java, "[skeb] [server] receive delete request")
 
             EventValues.registerEventValue(DeleteRequestEvent::class.java, Body::class.java, object: Getter<Body, DeleteRequestEvent>(){
                 override fun get(e: DeleteRequestEvent): Body {

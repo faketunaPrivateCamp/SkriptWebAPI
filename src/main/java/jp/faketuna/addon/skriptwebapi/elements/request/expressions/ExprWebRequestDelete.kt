@@ -23,7 +23,7 @@ class ExprWebRequestDelete: SimpleExpression<String>() {
             Skript.registerExpression(ExprWebRequestDelete::class.java,
                 String::class.java,
                 ExpressionType.COMBINED,
-                "response of delete request to [url] %string% [(with|and)] header %header% [(with|and)] body %string%"
+                "[skeb] response of delete request to [url] %string% [(with|and)] header %header% [(with|and)] body %string%"
             )
         }
     }

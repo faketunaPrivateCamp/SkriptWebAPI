@@ -15,7 +15,7 @@ class EvtPutRequest: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("put request", EvtPutRequest::class.java, PutRequestEvent::class.java, "[server] receive put request")
+            Skript.registerEvent("put request", EvtPutRequest::class.java, PutRequestEvent::class.java, "[skeb] [server] receive put request")
 
             EventValues.registerEventValue(PutRequestEvent::class.java, Body::class.java, object: Getter<Body, PutRequestEvent>(){
                 override fun get(e: PutRequestEvent): Body {

@@ -12,7 +12,7 @@ class EffStopHttpServer: Effect() {
 
     companion object{
         init {
-            Skript.registerEffect(EffStopHttpServer::class.java, "stop http [api] server")
+            Skript.registerEffect(EffStopHttpServer::class.java, "[skeb] stop http [api] server")
         }
     }
 
