@@ -15,7 +15,6 @@ import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.charset.Charset
-import kotlin.coroutines.suspendCoroutine
 
 class ExprWebRequestPost: SimpleExpression<String>() {
 
@@ -66,7 +65,7 @@ class ExprWebRequestPost: SimpleExpression<String>() {
     }
 
     private fun sendRequest(e: Event): String?{
-        val uri = targetURI!!.getSingle(e) ?: return null
+        val uri = targetURI.getSingle(e) ?: return null
         val url = URL(uri)
         val header: Header? = requestHeader.getSingle(e)
         val body: String? = requestBody.getSingle(e)
