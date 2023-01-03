@@ -32,9 +32,9 @@ class EvtDeleteRequest: SkriptEvent() {
                     return e.userAgent
                 }
             }, 0)
-            EventValues.registerEventValue(DeleteRequestEvent::class.java, SenderAddress::class.java, object: Getter<SenderAddress, DeleteRequestEvent>(){
-                override fun get(e: DeleteRequestEvent): SenderAddress {
-                    return e.senderAddress
+            EventValues.registerEventValue(DeleteRequestEvent::class.java, TargetHost::class.java, object: Getter<TargetHost, DeleteRequestEvent>(){
+                override fun get(e: DeleteRequestEvent): TargetHost {
+                    return e.targetHost
                 }
             }, 0)
             EventValues.registerEventValue(DeleteRequestEvent::class.java, ContextPath::class.java, object: Getter<ContextPath, DeleteRequestEvent>(){

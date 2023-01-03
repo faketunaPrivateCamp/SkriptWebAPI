@@ -32,9 +32,9 @@ class EvtGetRequest: SkriptEvent() {
                     return e.userAgent
                 }
             }, 0)
-            EventValues.registerEventValue(GetRequestEvent::class.java, SenderAddress::class.java, object: Getter<SenderAddress, GetRequestEvent>(){
-                override fun get(e: GetRequestEvent): SenderAddress {
-                    return e.senderAddress
+            EventValues.registerEventValue(GetRequestEvent::class.java, TargetHost::class.java, object: Getter<TargetHost, GetRequestEvent>(){
+                override fun get(e: GetRequestEvent): TargetHost {
+                    return e.targetHost
                 }
             }, 0)
             EventValues.registerEventValue(GetRequestEvent::class.java, ContextPath::class.java, object: Getter<ContextPath, GetRequestEvent>(){

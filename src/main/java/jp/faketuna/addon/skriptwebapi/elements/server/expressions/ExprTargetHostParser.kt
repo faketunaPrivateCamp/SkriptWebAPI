@@ -6,19 +6,18 @@ import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
-import jp.faketuna.addon.skriptwebapi.api.server.objects.ContextPath
-import jp.faketuna.addon.skriptwebapi.api.server.objects.SenderAddress
+import jp.faketuna.addon.skriptwebapi.api.server.objects.TargetHost
 import org.bukkit.event.Event
 
-class ExprSenderAddressParser: SimpleExpression<String>() {
+class ExprTargetHostParser: SimpleExpression<String>() {
 
     companion object{
         init {
-            Skript.registerExpression(ExprSenderAddressParser::class.java, String::class.java, ExpressionType.COMBINED, "[skeb] %senderaddr% parsed as text")
+            Skript.registerExpression(ExprTargetHostParser::class.java, String::class.java, ExpressionType.COMBINED, "[skeb] %targetaddr% parsed as text")
         }
     }
 
-    private var senderAddress: Expression<SenderAddress>? = null
+    private var targetHost: Expression<TargetHost>? = null
 
     override fun getReturnType(): Class<out String> {
         return String::class.java
@@ -29,7 +28,7 @@ class ExprSenderAddressParser: SimpleExpression<String>() {
     }
 
     override fun init(exprs: Array<out Expression<*>>, matchedPattern: Int, isDelayed: Kleenean?, parser: SkriptParser.ParseResult?): Boolean {
-        senderAddress = exprs[0] as Expression<SenderAddress>?
+        targetHost = exprs[0] as Expression<TargetHost>?
         return true
     }
 
@@ -38,9 +37,9 @@ class ExprSenderAddressParser: SimpleExpression<String>() {
     }
 
     override fun get(event: Event?): Array<String?>? {
-        val a = senderAddress!!.getSingle(event)
+        val a = targetHost!!.getSingle(event)
         if (a != null){
-            return arrayOf(a.getSenderAddress())
+            return arrayOf(a.getTargetHost())
         }
         return null
     }

@@ -15,7 +15,7 @@ public class GetRequestEvent extends Event {
     private final Body body;
     private final Header header;
     private final UserAgent userAgent;
-    private final SenderAddress senderAddress;
+    private final TargetHost targetHost;
     private final HttpExchange exchange;
     private final ContextPath contextPath;
 
@@ -47,7 +47,7 @@ public class GetRequestEvent extends Event {
                 .collect(Collectors.joining()));
         this.header = new Header(exchange.getRequestHeaders());
         this.userAgent = new UserAgent(header.getHeader().get("User-Agent").get(0));
-        this.senderAddress = new SenderAddress(header.getHeader().get("host").get(0));
+        this.targetHost = new TargetHost(header.getHeader().get("host").get(0));
         this.contextPath = new ContextPath(exchange.getRequestURI().getPath());
     }
 
@@ -63,8 +63,8 @@ public class GetRequestEvent extends Event {
         return this.userAgent;
     }
 
-    public SenderAddress getSenderAddress(){
-        return this.senderAddress;
+    public TargetHost getTargetHost(){
+        return this.targetHost;
     }
 
     public HttpExchange getExchange() {
