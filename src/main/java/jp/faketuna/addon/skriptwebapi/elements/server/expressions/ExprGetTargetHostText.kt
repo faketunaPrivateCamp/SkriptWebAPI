@@ -7,7 +7,6 @@ import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
 import com.sun.net.httpserver.HttpExchange
-import jp.faketuna.addon.skriptwebapi.api.server.objects.TargetHost
 import org.bukkit.event.Event
 
 class ExprGetTargetHostText: SimpleExpression<String>() {

@@ -14,41 +14,11 @@ class Types {
 
     companion object{
         init {
-            Classes.registerClass(ClassInfo(Body::class.java, "body")
-                .name("Body")
-                .usage("Body of request")
-                /*
-                    構文の登録 ??で囲むとあってもなくてもok
-                    "a ?b" ならaとbの間に-とスペース以外が入っても無視する
-                */
-
-                .user("body?")
-                .defaultExpression(EventValueExpression(Body::class.java)))
-
             Classes.registerClass(ClassInfo(Header::class.java, "header")
                 .name("Header")
                 .usage("Header of request")
                 .user("header?")
                 .defaultExpression(EventValueExpression(Header::class.java)))
-
-            Classes.registerClass(ClassInfo(UserAgent::class.java, "useragent")
-                .name("UserAgent")
-                .usage("User Agent of request")
-                .user("(agent|user ?agent)")
-                .defaultExpression(EventValueExpression(UserAgent::class.java)))
-
-            Classes.registerClass(ClassInfo(TargetHost::class.java, "targetaddr")
-                .name("TargetAddr")
-                .usage("Target Address of request")
-                .user("(address|target ?address|target ?host)")
-                .defaultExpression(EventValueExpression(TargetHost::class.java)))
-
-            Classes.registerClass(ClassInfo(ContextPath::class.java, "contextpath")
-                .name("ContextPath")
-                .usage("Context path of request")
-                .user("(path|context ?path)")
-                .defaultExpression(EventValueExpression(ContextPath::class.java)))
-
             Classes.registerClass(ClassInfo(HttpExchange::class.java, "httpexchange")
                 .name("HttpExchange")
                 .usage("Http request instance")

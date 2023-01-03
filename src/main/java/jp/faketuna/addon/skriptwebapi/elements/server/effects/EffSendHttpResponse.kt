@@ -7,7 +7,6 @@ import ch.njol.skript.lang.SkriptParser
 import ch.njol.util.Kleenean
 import com.sun.net.httpserver.HttpExchange
 import org.bukkit.event.Event
-import java.io.ByteArrayOutputStream
 
 class EffSendHttpResponse: Effect() {
 

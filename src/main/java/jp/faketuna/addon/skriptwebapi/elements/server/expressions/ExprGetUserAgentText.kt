@@ -7,8 +7,6 @@ import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
 import com.sun.net.httpserver.HttpExchange
-import jp.faketuna.addon.skriptwebapi.api.server.objects.ContextPath
-import jp.faketuna.addon.skriptwebapi.api.server.objects.UserAgent
 import org.bukkit.event.Event
 
 class ExprGetUserAgentText: SimpleExpression<String>() {
