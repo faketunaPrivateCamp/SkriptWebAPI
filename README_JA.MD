@@ -15,11 +15,6 @@
   - [インストール](#インストール)
   - [使い方とか](#使い方とか)
     - [重要](#重要)
-    - [Effects](#effects)
-    - [Events](#events)
-    - [Event values in all receive request event](#event-values-in-all-receive-request-event)
-    - [Expressions](#expressions)
-- [Example](#example)
   - [やることリスト](#やることリスト)
 
 
@@ -71,7 +66,4 @@ on receive get request:
 
 ## やることリスト
 
-- POSTリクエストを送れるようにする
-- PUTリクエストを送れるようにする
-- DELETEリクエストを送れるようにする
 - 1.12.2 ~ 1.19.2での動作を確認しそれらのバージョンで動作できるようにする

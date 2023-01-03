@@ -16,11 +16,6 @@ I will not responsible for loss, trouble etc. caused by using this plugin. Pleas
   - [Install](#install)
   - [Documentation](#documentation)
     - [Important](#important)
-    - [Effects](#effects)
-    - [Events](#events)
-    - [Event values in all receive request event](#event-values-in-all-receive-request-event)
-    - [Expressions](#expressions)
-- [Example](#example)
   - [Todo](#todo)
 
 
@@ -74,7 +69,4 @@ If someone know forcing this syntax above please open issue.
 
 ## Todo
 
-- Add and allow to send POST web request
-- Add and allow to send PUT web request
-- Add and allow to send DELETE web request
 - Test and allow to load in 1.12.2 ~ 1.19.2
