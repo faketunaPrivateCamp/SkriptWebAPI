@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.request.expressions
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
@@ -10,6 +14,11 @@ import org.bukkit.event.Event
 import java.net.HttpURLConnection
 import java.nio.charset.Charset
 
+@Name("Get response body")
+@Description("It returns response body.")
+@Examples("set {_response} to response of get request to \"http://domain/\"\n" +
+        "broadcast {_response}'s response body")
+@Since("0.0.2")
 class ExprGetResponseBody: SimpleExpression<String>() {
 
     companion object{

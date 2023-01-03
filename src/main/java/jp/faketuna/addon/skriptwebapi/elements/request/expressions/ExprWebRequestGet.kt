@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.request.expressions
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
@@ -15,6 +19,16 @@ import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
 
+@Name("Send get web request")
+@Description("Send a get web request with specified header and body.\n" +
+        "It returns response of web request.")
+@Examples("set {_header} to blank header\n" +
+        "set {_header}'s properties \"Content-Type\" to \"applicaiton/json\"\n" +
+        "set {_header}'s properties \"User-Agent\" to \"SkriptWebAPI/0.0.1\"\n" +
+        "set {_header}'s properties \"Custom\" to \"Custom header\"\n" +
+        "set {_response} to response of get request to \"http://domain/\" with header {_header} and body \"{\"\"json\"\":\"\"body\"\"}\"\n" +
+        "broadcast \"response: %{_response}'s response body%\"")
+@Since("0.0.2")
 class ExprWebRequestGet: SimpleExpression<HttpURLConnection>() {
 
     companion object{

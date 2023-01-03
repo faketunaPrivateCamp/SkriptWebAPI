@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.request.effects
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Effect
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser
@@ -8,6 +12,12 @@ import ch.njol.util.Kleenean
 import jp.faketuna.addon.skriptwebapi.api.server.objects.Header
 import org.bukkit.event.Event
 
+@Name("Set request header properties")
+@Description("Set the request header properties.\n" +
+        "To edit you must initialize variable with `set {_header} to blank header` then `set {_header} properties %string% to %string%`")
+@Examples("set {_header} to blank header\n" +
+        "set {_header}'s properties \"Content-Type\" to \"applicaiton/json\"")
+@Since("0.0.1")
 class EffSetHeaderProperties: Effect() {
 
     companion object{

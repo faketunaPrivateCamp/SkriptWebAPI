@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.server.effects
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Effect
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser
@@ -8,6 +12,11 @@ import ch.njol.util.Kleenean
 import jp.faketuna.addon.skriptwebapi.api.server.http.HttpAPIServer
 import org.bukkit.event.Event
 
+@Name("Stop HTTP server")
+@Description("This effect is used to stop the HTTP server.\n" +
+        "Nothing special.")
+@Examples("")
+@Since("0.0.1")
 class EffStopHttpServer: Effect() {
 
     companion object{

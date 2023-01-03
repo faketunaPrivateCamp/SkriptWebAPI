@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.server.expressions
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
@@ -12,6 +16,11 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.util.stream.Collectors
 
+@Name("Get body text")
+@Description("It returns Body in text (mostly json).")
+@Examples("set {_request} to event-request\n" +
+        "set {_body} to {_request}'s body")
+@Since("0.0.2")
 class ExprGetBodyText: SimpleExpression<String>() {
 
     companion object{

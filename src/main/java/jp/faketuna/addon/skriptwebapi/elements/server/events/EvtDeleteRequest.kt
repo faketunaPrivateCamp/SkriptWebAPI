@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.server.events
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Literal
 import ch.njol.skript.lang.SkriptEvent
 import ch.njol.skript.lang.SkriptParser
@@ -10,6 +14,33 @@ import com.sun.net.httpserver.HttpExchange
 import jp.faketuna.addon.skriptwebapi.api.server.events.DeleteRequestEvent
 import org.bukkit.event.Event
 
+@Name("On delete request received")
+@Description("This event fired when receive the delete request.\n" +
+        "\n")
+@Examples("on receive delete request:\n" +
+        "    set {_request} to event-request\n" +
+        "    set {_path} to {_request}'s path\n" +
+        "    set {_body} to \"\"\n" +
+        "\n" +
+        "    if ({_path} is \"/delete-variable\"):\n" +
+        "        set {_variableName} to {_request}'s request header properties \"VariableName\"\n" +
+        "\n" +
+        "\n" +
+        "        if ({%{_variableName}%} is not set):\n" +
+        "            set {_body} to \"{\"\"variable\"\":\"\"not found\"\"}\"\n" +
+        "            reply {_request} with body {_body} and response code 404\n" +
+        "            exit\n" +
+        "        else:\n" +
+        "            delete {%{_variableName}%}\n" +
+        "            set {_body} to \"{\"\"variable\"\":\"\"removed\"\"}\"\n" +
+        "\n" +
+        "        set {_request}'s response header \"Content-Type\" to \"application/json\"\n" +
+        "        reply {_request} with body {_body} and response code 200\n" +
+        "        exit\n" +
+        "\n" +
+        "\n" +
+        "    reply {_request} as not found")
+@Since("0.0.2")
 class EvtDeleteRequest: SkriptEvent() {
 
     companion object{

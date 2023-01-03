@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.server.expressions
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
@@ -9,6 +13,10 @@ import ch.njol.util.Kleenean
 import com.sun.net.httpserver.HttpExchange
 import org.bukkit.event.Event
 
+@Name("Get header properties")
+@Description("It returns header properties in text.")
+@Examples("set {_message} to {_request}'s request header properties \"Message\"")
+@Since("0.0.2")
 class ExprGetHeaderProperties: SimpleExpression<String>() {
 
     companion object{

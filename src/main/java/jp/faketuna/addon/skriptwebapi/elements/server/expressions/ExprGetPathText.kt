@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.server.expressions
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
@@ -9,6 +13,11 @@ import ch.njol.util.Kleenean
 import com.sun.net.httpserver.HttpExchange
 import org.bukkit.event.Event
 
+@Name("Get context path")
+@Description("It returns context path in text.")
+@Examples("set {_request} to event-request\n" +
+        "set {_path} to {_request}'s path")
+@Since("0.0.2")
 class ExprGetPathText: SimpleExpression<String>() {
 
     companion object{

@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.request.expressions
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
@@ -9,6 +13,11 @@ import ch.njol.util.Kleenean
 import org.bukkit.event.Event
 import java.net.HttpURLConnection
 
+@Name("Get response code")
+@Description("It returns response code.")
+@Examples("set {_response} to response of get request to \"http://domain/\"\n" +
+        "broadcast {_response}'s response code")
+@Since("0.0.2")
 class ExprGetResponseCode: SimpleExpression<Number>() {
 
     companion object{

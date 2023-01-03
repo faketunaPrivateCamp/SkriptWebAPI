@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.server.effects
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Effect
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser
@@ -9,6 +13,11 @@ import jp.faketuna.addon.skriptwebapi.api.server.config.SKebConfig
 import jp.faketuna.addon.skriptwebapi.api.server.http.HttpAPIServer
 import org.bukkit.event.Event
 
+@Name("Start HTTP server")
+@Description("This effect is used to start the HTTP server.\n" +
+        "If you don't specified the port number it uses config value (default 8080)")
+@Examples("start http server in port 8000")
+@Since("0.0.1")
 class EffStartHttpServer: Effect() {
 
     companion object{

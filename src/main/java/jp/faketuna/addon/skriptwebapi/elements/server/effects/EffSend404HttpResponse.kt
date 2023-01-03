@@ -1,6 +1,10 @@
 package jp.faketuna.addon.skriptwebapi.elements.server.effects
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Effect
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser
@@ -8,6 +12,11 @@ import ch.njol.util.Kleenean
 import com.sun.net.httpserver.HttpExchange
 import org.bukkit.event.Event
 
+@Name("Response to web request as not found")
+@Description("This is an effect that can be used within a any receive request event.\n" +
+        "It returns a 404 HTTP status code and json with {\"status\": \"404\"}.")
+@Examples("")
+@Since("0.0.1")
 class EffSend404HttpResponse: Effect() {
 
     companion object{
