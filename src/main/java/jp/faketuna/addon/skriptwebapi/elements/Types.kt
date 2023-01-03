@@ -9,6 +9,7 @@ import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.events.PostRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.events.PutRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.objects.*
+import java.net.HttpURLConnection
 
 class Types {
 
@@ -19,11 +20,17 @@ class Types {
                 .usage("Header of request")
                 .user("header?")
                 .defaultExpression(EventValueExpression(Header::class.java)))
+
             Classes.registerClass(ClassInfo(HttpExchange::class.java, "httpexchange")
                 .name("HttpExchange")
                 .usage("Http request instance")
                 .user("(request|http ?exchange)")
                 .defaultExpression(EventValueExpression(HttpExchange::class.java)))
+
+            Classes.registerClass(ClassInfo(HttpURLConnection::class.java, "httprulcon")
+                .name("HttpURLConnection")
+                .usage("HttpURLConnection instance")
+                .defaultExpression(EventValueExpression(HttpURLConnection::class.java)))
 
             Classes.registerClass(ClassInfo(GetRequestEvent::class.java, "getrequestevent")
                 .name("GetRequestEvent")
