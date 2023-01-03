@@ -40,7 +40,7 @@ class Types {
             Classes.registerClass(ClassInfo(TargetHost::class.java, "targetaddr")
                 .name("TargetAddr")
                 .usage("Target Address of request")
-                .user("(address|target ?address)")
+                .user("(address|target ?address|target ?host)")
                 .defaultExpression(EventValueExpression(TargetHost::class.java)))
 
             Classes.registerClass(ClassInfo(ContextPath::class.java, "contextpath")
