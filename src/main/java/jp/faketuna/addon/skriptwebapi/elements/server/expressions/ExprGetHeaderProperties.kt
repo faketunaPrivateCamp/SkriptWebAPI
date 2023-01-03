@@ -40,7 +40,6 @@ class ExprGetHeaderProperties: SimpleExpression<String>() {
 
     override fun get(event: Event?): Array<String?>? {
         val b = httpExchange!!.getSingle(event)
-        println("")
         if (b != null && b.requestHeaders[properties!!.getSingle(event)] != null){
             return arrayOf(b.requestHeaders[properties!!.getSingle(event)]!![0])
         }
