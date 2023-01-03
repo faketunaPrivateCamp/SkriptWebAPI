@@ -14,14 +14,13 @@ import org.bukkit.event.Event
 import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
-import java.nio.charset.Charset
 
-class ExprWebRequestPut: SimpleExpression<String>() {
+class ExprWebRequestPut: SimpleExpression<HttpURLConnection>() {
 
     companion object{
         init {
             Skript.registerExpression(ExprWebRequestPut::class.java,
-                String::class.java,
+                HttpURLConnection::class.java,
                 ExpressionType.COMBINED,
                 "[skeb] response of put request to [url] %string% [(with|and)] header %header% [(with|and)] body %string%"
             )
@@ -32,8 +31,8 @@ class ExprWebRequestPut: SimpleExpression<String>() {
     private lateinit var requestHeader: Expression<Header>
     private lateinit var requestBody: Expression<String>
 
-    override fun getReturnType(): Class<out String> {
-        return String::class.java
+    override fun getReturnType(): Class<out HttpURLConnection> {
+        return HttpURLConnection::class.java
     }
 
     override fun isSingle(): Boolean {
@@ -51,8 +50,8 @@ class ExprWebRequestPut: SimpleExpression<String>() {
         return "to string"
     }
 
-    override fun get(event: Event): Array<String?>? {
-        val response: String?
+    override fun get(event: Event): Array<HttpURLConnection?>? {
+        val response: HttpURLConnection?
         try {
             response = sendRequest(event)
         } catch (e: Exception){
@@ -64,13 +63,13 @@ class ExprWebRequestPut: SimpleExpression<String>() {
         return null
     }
 
-    private fun sendRequest(e: Event): String?{
+    private fun sendRequest(e: Event): HttpURLConnection?{
         val uri = targetURI.getSingle(e) ?: return null
         val url = URL(uri)
         val header: Header? = requestHeader.getSingle(e)
         val body: String? = requestBody.getSingle(e)
 
-        var result: String? = null
+        var result: HttpURLConnection? = null
         runBlocking {
             withContext(Dispatchers.IO) {
                 with(url.openConnection() as HttpURLConnection) {
@@ -89,7 +88,7 @@ class ExprWebRequestPut: SimpleExpression<String>() {
 
                     }
                     if (responseCode == HttpURLConnection.HTTP_OK) {
-                        result = inputStream.readBytes().toString(Charset.defaultCharset())
+                        result = this
                     }
                 }
             }
