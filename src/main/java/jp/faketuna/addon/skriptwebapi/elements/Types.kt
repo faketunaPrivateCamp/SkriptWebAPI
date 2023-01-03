@@ -27,7 +27,7 @@ class Types {
                 .user("(request|http ?exchange)")
                 .defaultExpression(EventValueExpression(HttpExchange::class.java)))
 
-            Classes.registerClass(ClassInfo(HttpURLConnection::class.java, "httprulcon")
+            Classes.registerClass(ClassInfo(HttpURLConnection::class.java, "httpurlcon")
                 .name("HttpURLConnection")
                 .usage("HttpURLConnection instance")
                 .defaultExpression(EventValueExpression(HttpURLConnection::class.java)))
