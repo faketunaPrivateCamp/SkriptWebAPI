@@ -37,7 +37,7 @@ class ExprGetPathText: SimpleExpression<String>() {
     }
 
     override fun get(event: Event?): Array<String?>? {
-        val p = httpExchange!!.getSingle(event)!!.httpContext.path
+        val p = httpExchange!!.getSingle(event)!!.requestURI.path
         if (p != null){
             return arrayOf(p)
         }
