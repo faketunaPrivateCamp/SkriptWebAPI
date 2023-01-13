@@ -14,15 +14,17 @@ import jp.faketuna.addon.skriptwebapi.api.server.events.GetResponseEvent
 import org.bukkit.event.Event
 import java.net.HttpURLConnection
 
-@Name("On get request response received")
-@Description("This event fired when receive the get web request response.")
-@Examples("")
-@Since("0.0.3")
 class EvtGetResponse: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("Get request response", EvtGetResponse::class.java, GetResponseEvent::class.java, "[skeb] get [web] [request] response")
+            Skript.registerEvent("On get request response received", EvtGetResponse::class.java, GetResponseEvent::class.java, "[skeb] get [web] [request] response")
+                .description("This event fired when receive the get web request response.")
+                .examples("set {_response} to event-connection\n" +
+                        "broadcast {_response}'s response code\n" +
+                        "broadcast {_response}'s response body\n" +
+                        "broadcast {_response}'s response header \"Date\"")
+                .since("0.0.3")
 
             EventValues.registerEventValue(GetResponseEvent::class.java, HttpURLConnection::class.java, object: Getter<HttpURLConnection, GetResponseEvent>(){
                 override fun get(e: GetResponseEvent): HttpURLConnection {

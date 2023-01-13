@@ -14,27 +14,26 @@ import com.sun.net.httpserver.HttpExchange
 import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
 import org.bukkit.event.Event
 
-@Name("On get request received")
-@Description("This event fired when receive the get request.")
-@Examples("on receive get request:\n" +
-        "    set {_request} to event-request\n" +
-        "    set {_path} to {_request}'s path\n" +
-        "    set {_body} to \"\"\n" +
-        "\n" +
-        "    if ({_path} is \"/user\"):\n" +
-        "        set {_user} to number of all players\n" +
-        "        set {_body} to \"{\"\"user\"\":\"\"%{_user}%\"\"}\"\n" +
-        "        set {_request}'s response header \"Content-Type\" to \"application/json\"\n" +
-        "        reply {_request} with body {_body} and response code 200\n" +
-        "        exit\n" +
-        "\n" +
-        "    reply {_request} as not found")
-@Since("0.0.2")
 class EvtGetRequest: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("get request", EvtGetRequest::class.java, GetRequestEvent::class.java, "[skeb] [server] receive get request")
+            Skript.registerEvent("On get request received", EvtGetRequest::class.java, GetRequestEvent::class.java, "[skeb] [server] receive get request")
+                .description("This event fired when receive the get request.")
+                .examples("on receive get request:\n" +
+                        "    set {_request} to event-request\n" +
+                        "    set {_path} to {_request}'s path\n" +
+                        "    set {_body} to \"\"\n" +
+                        "\n" +
+                        "    if ({_path} is \"/user\"):\n" +
+                        "        set {_user} to number of all players\n" +
+                        "        set {_body} to \"{\"\"user\"\":\"\"%{_user}%\"\"}\"\n" +
+                        "        set {_request}'s response header \"Content-Type\" to \"application/json\"\n" +
+                        "        reply {_request} with body {_body} and response code 200\n" +
+                        "        exit\n" +
+                        "\n" +
+                        "    reply {_request} as not found")
+                .since("0.0.2")
 
             EventValues.registerEventValue(GetRequestEvent::class.java, HttpExchange::class.java, object: Getter<HttpExchange, GetRequestEvent>(){
                 override fun get(e: GetRequestEvent): HttpExchange {
