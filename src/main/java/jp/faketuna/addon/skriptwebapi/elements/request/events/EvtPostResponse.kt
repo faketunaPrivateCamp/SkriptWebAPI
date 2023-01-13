@@ -14,7 +14,7 @@ class EvtPostResponse: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("On post request response received", EvtPostResponse::class.java, PostResponseEvent::class.java, "[skeb] post [web] [request] response")
+            Skript.registerEvent("post request response received", EvtPostResponse::class.java, PostResponseEvent::class.java, "[skeb] post [web] [request] response")
                 .description("This event fired when receive the post web request response.")
                 .examples("set {_response} to event-connection\n" +
                         "broadcast {_response}'s response code\n" +

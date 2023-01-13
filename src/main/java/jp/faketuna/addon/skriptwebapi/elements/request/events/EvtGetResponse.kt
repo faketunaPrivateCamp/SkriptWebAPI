@@ -14,7 +14,7 @@ class EvtGetResponse: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("On get request response received", EvtGetResponse::class.java, GetResponseEvent::class.java, "[skeb] get [web] [request] response")
+            Skript.registerEvent("get request response received", EvtGetResponse::class.java, GetResponseEvent::class.java, "[skeb] get [web] [request] response")
                 .description("This event fired when receive the get web request response.")
                 .examples("set {_response} to event-connection\n" +
                         "broadcast {_response}'s response code\n" +

@@ -14,7 +14,7 @@ class EvtDeleteResponse: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("On delete request response received", EvtDeleteResponse::class.java, DeleteResponseEvent::class.java, "[skeb] delete [web] [request] response")
+            Skript.registerEvent("delete request response received", EvtDeleteResponse::class.java, DeleteResponseEvent::class.java, "[skeb] delete [web] [request] response")
                 .description("This event fired when receive the delete web request response.")
                 .examples("set {_response} to event-connection\n" +
                         "broadcast {_response}'s response code\n" +

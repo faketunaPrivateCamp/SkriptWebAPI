@@ -14,7 +14,7 @@ class EvtPutResponse: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("On put request response received", EvtPutResponse::class.java, PutResponseEvent::class.java, "[skeb] put [web] [request] response")
+            Skript.registerEvent("put request response received", EvtPutResponse::class.java, PutResponseEvent::class.java, "[skeb] put [web] [request] response")
                 .description("This event fired when receive the put web request response.")
                 .examples("set {_response} to event-connection\n" +
                         "broadcast {_response}'s response code\n" +
