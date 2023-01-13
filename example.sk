@@ -1,0 +1,138 @@
+# Written in plugin version 0.0.2
+
+on skript load:
+    start http server in port 8080
+
+on skript unload:
+    stop http server
+
+command get:
+    trigger:
+        set {_header} to blank header
+        set {_header}'s properties "Content-Type" to "applicaiton/json"
+        set {_header}'s properties "User-Agent" to "SkriptWebAPI/0.0.1"
+        set {_header}'s properties "Custom" to "Custom header"
+        set {_response} to response of get request to "http://httpbin.org/get" with header {_header}
+        broadcast {_response}'s response code
+        broadcast {_response}'s response body
+        broadcast {_response}'s response header "Date"
+        broadcast "response: %{_response}'s response %"
+
+command put:
+    trigger:
+        set {_header} to blank header
+        set {_header}'s properties "Content-Type" to "applicaiton/json"
+        set {_header}'s properties "User-Agent" to "SkriptWebAPI/0.0.1"
+        set {_header}'s properties "Custom" to "Custom header"
+        set {_response} to response of put request to "http://httpbin.org/put" with header {_header} and body "{""json"":""body""}"
+        broadcast "response: %{_response}'s response body%"
+
+command post:
+    trigger:
+        set {_header} to blank header
+        set {_header}'s properties "Content-Type" to "applicaiton/json"
+        set {_header}'s properties "User-Agent" to "SkriptWebAPI/0.0.1"
+        set {_header}'s properties "Custom" to "Custom header"
+        set {_response} to response of post request to "http://httpbin.org/post" with header {_header} and body "{""json"":""body""}"
+        broadcast "response: %{_response}'s response body%"
+
+command delete:
+    trigger:
+        set {_header} to blank header
+        set {_header}'s properties "Content-Type" to "applicaiton/json"
+        set {_header}'s properties "User-Agent" to "SkriptWebAPI/0.0.1"
+        set {_header}'s properties "Custom" to "Custom header"
+        set {_response} to response of delete request to "http://httpbin.org/delete" with header {_header} and body "{""json"":""body""}"
+        broadcast "response: %{_response}'s response body%"
+
+on receive get request:
+    set {_request} to event-request
+    set {_path} to {_request}'s path
+    set {_body} to ""
+
+    if ({_path} is "/user"):
+        set {_user} to number of all players
+        set {_body} to "{""user"":""%{_user}%""}"
+        set {_request}'s response header "Content-Type" to "application/json"
+        reply {_request} with body {_body} and response code 200
+        exit
+
+    reply {_request} as not found
+
+on receive put request:
+    set {_request} to event-request
+    broadcast {_request}'s path
+    set {_request} to event-request
+    set {_path} to {_request}'s path
+    set {_body} to ""
+
+
+    if ({_path} is "/send"):
+        set {_user} to {_request}'s request header properties "User" parsed as offline player
+        set {_message} to {_request}'s request header properties "Message"
+        
+        if ({_user} is online):
+            send {_message} to {_user}
+            set {_body} to "{""sent"":true}"
+        else:
+            set {_body} to "{""sent"":false}"
+        
+        set {_request}'s response header "Content-Type" to "application/json"
+        reply {_request} with body {_body} and response code 200
+        exit
+
+    reply {_request} as not found
+
+
+on receive post request:
+    set {_request} to event-request
+    set {_path} to {_request}'s path
+    set {_body} to ""
+
+    if ({_path} is "/add-value"):
+        set {_listName} to {_request}'s request header properties "List"
+        set {_value} to {_request}'s request header properties "Value"
+    
+        if ({%{_listName}%::*} is not set):
+            set {_body} to "{""list"":""not found""}"
+            reply {_request} with body {_body} and response code 404
+            exit
+        
+        else if ({_value} is not set):
+            set {_body} to "{""error"":""Value not provided""}"
+            reply {_request} with body {_body} and response code 400
+            exit
+        
+        else:
+            add {_value} to {%{_listName}%::*}
+            set {_body} to "{""list"":""added""}"
+
+        set {_request}'s response header "Content-Type" to "application/json"
+        reply {_request} with body {_body} and response code 200
+        exit
+        
+    reply {_request} as not found
+
+on receive delete request:
+    set {_request} to event-request
+    set {_path} to {_request}'s path
+    set {_body} to ""
+
+    if ({_path} is "/delete-variable"):
+        set {_variableName} to {_request}'s request header properties "VariableName"
+
+
+        if ({%{_variableName}%} is not set):
+            set {_body} to "{""variable"":""not found""}"
+            reply {_request} with body {_body} and response code 404
+            exit
+        else:
+            delete {%{_variableName}%}
+            set {_body} to "{""variable"":""removed""}"
+
+        set {_request}'s response header "Content-Type" to "application/json"
+        reply {_request} with body {_body} and response code 200
+        exit
+
+
+    reply {_request} as not found
