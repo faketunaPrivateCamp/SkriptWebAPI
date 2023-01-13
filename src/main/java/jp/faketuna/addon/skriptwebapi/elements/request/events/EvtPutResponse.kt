@@ -22,7 +22,7 @@ class EvtPutResponse: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("Put request response", EvtPutResponse::class.java, PutResponseEvent::class.java, "[skeb] post [web] [request] response")
+            Skript.registerEvent("Put request response", EvtPutResponse::class.java, PutResponseEvent::class.java, "[skeb] put [web] [request] response")
 
             EventValues.registerEventValue(PutResponseEvent::class.java, HttpURLConnection::class.java, object: Getter<HttpURLConnection, PutResponseEvent>(){
                 override fun get(e: PutResponseEvent): HttpURLConnection {
