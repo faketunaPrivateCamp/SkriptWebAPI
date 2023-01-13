@@ -30,6 +30,7 @@ class Types {
             Classes.registerClass(ClassInfo(HttpURLConnection::class.java, "httpurlcon")
                 .name("HttpURLConnection")
                 .usage("HttpURLConnection instance")
+                .user("connection")
                 .defaultExpression(EventValueExpression(HttpURLConnection::class.java)))
 
             Classes.registerClass(ClassInfo(GetRequestEvent::class.java, "getrequestevent")
