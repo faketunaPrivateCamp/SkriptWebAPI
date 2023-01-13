@@ -8,7 +8,7 @@ import jp.faketuna.addon.skriptwebapi.api.server.events.DeleteRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.events.PostRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.events.PutRequestEvent
-import jp.faketuna.addon.skriptwebapi.api.server.objects.*
+import jp.faketuna.addon.skriptwebapi.api.server.objects.Header
 import java.net.HttpURLConnection
 
 class Types {

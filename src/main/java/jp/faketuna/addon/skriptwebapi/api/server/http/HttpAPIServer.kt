@@ -2,7 +2,6 @@ package jp.faketuna.addon.skriptwebapi.api.server.http
 
 import com.sun.net.httpserver.HttpHandler
 import com.sun.net.httpserver.HttpServer
-import java.lang.Exception
 import java.net.InetSocketAddress
 
 class HttpAPIServer {

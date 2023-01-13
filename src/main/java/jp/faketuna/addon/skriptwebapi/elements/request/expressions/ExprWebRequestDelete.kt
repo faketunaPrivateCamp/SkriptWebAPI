@@ -15,7 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.bukkit.event.Event
-import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
 
