@@ -20,9 +20,9 @@ import org.bukkit.event.Event
 import java.net.HttpURLConnection
 import java.net.URL
 
-@Name("Send a put web request")
-@Description("Send a put web request with specified header and body.\n" +
-        "It returns response of put web request.")
+@Name("Send a async put web request")
+@Description("Send a async put web request with specified header and body.\n" +
+        "It calls put response event when connection successful.")
 @Examples("set {_header} to blank header\n" +
         "set {_header}'s properties \"Content-Type\" to \"applicaiton/json\"\n" +
         "set {_header}'s properties \"User-Agent\" to \"SkriptWebAPI/0.0.1\"\n" +
