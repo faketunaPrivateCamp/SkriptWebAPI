@@ -14,7 +14,7 @@ class EvtGetRequest: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("On get request received", EvtGetRequest::class.java, GetRequestEvent::class.java, "[skeb] [server] receive get request")
+            Skript.registerEvent("get request received", EvtGetRequest::class.java, GetRequestEvent::class.java, "[skeb] [server] receive get request")
                 .description("This event fired when receive the get request.")
                 .examples("on receive get request:\n" +
                         "    set {_request} to event-request\n" +

@@ -14,7 +14,7 @@ class EvtPostRequest: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("On post request received", EvtPostRequest::class.java, PostRequestEvent::class.java, "[skeb] [server] receive post request")
+            Skript.registerEvent("post request received", EvtPostRequest::class.java, PostRequestEvent::class.java, "[skeb] [server] receive post request")
                 .description("This event fired when receive the post request.")
                 .examples("on receive post request:\n" +
                         "    set {_request} to event-request\n" +

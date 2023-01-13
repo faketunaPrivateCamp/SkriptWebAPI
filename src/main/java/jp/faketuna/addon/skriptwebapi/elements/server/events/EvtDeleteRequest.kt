@@ -14,7 +14,7 @@ class EvtDeleteRequest: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("On delete request received", EvtDeleteRequest::class.java, DeleteRequestEvent::class.java, "[skeb] [server] receive delete request")
+            Skript.registerEvent("delete request received", EvtDeleteRequest::class.java, DeleteRequestEvent::class.java, "[skeb] [server] receive delete request")
                 .description("This event fired when receive the delete request.")
                 .examples("on receive delete request:\n" +
                         "    set {_request} to event-request\n" +

@@ -14,7 +14,7 @@ class EvtPutRequest: SkriptEvent() {
 
     companion object{
         init {
-            Skript.registerEvent("On put request received", EvtPutRequest::class.java, PutRequestEvent::class.java, "[skeb] [server] receive put request")
+            Skript.registerEvent("put request received", EvtPutRequest::class.java, PutRequestEvent::class.java, "[skeb] [server] receive put request")
                 .description("This event fired when receive the put request.")
                 .examples("on receive put request:\n" +
                         "    set {_request} to event-request\n" +
