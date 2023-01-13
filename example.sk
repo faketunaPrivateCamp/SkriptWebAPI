@@ -1,10 +1,12 @@
-# Written in plugin version 0.0.2
+# Written in plugin version 0.0.3
 
 on skript load:
     start http server in port 8080
 
 on skript unload:
     stop http server
+
+# ==== Web request feature ====
 
 command get:
     trigger:
@@ -16,7 +18,8 @@ command get:
         broadcast {_response}'s response code
         broadcast {_response}'s response body
         broadcast {_response}'s response header "Date"
-        broadcast "response: %{_response}'s response %"
+        broadcast "response: %{_response}'s response body%"
+
 
 command put:
     trigger:
@@ -27,6 +30,7 @@ command put:
         set {_response} to response of put request to "http://httpbin.org/put" with header {_header} and body "{""json"":""body""}"
         broadcast "response: %{_response}'s response body%"
 
+
 command post:
     trigger:
         set {_header} to blank header
@@ -36,6 +40,7 @@ command post:
         set {_response} to response of post request to "http://httpbin.org/post" with header {_header} and body "{""json"":""body""}"
         broadcast "response: %{_response}'s response body%"
 
+
 command delete:
     trigger:
         set {_header} to blank header
@@ -44,6 +49,69 @@ command delete:
         set {_header}'s properties "Custom" to "Custom header"
         set {_response} to response of delete request to "http://httpbin.org/delete" with header {_header} and body "{""json"":""body""}"
         broadcast "response: %{_response}'s response body%"
+
+# ==== Async web request feature ====
+
+command asyncget:
+    trigger:
+        set {_header} to blank header
+        set {_header}'s properties "Content-Type" to "applicaiton/json"
+        set {_header}'s properties "User-Agent" to "SkriptWebAPI/0.0.1"
+        set {_header}'s properties "Custom" to "Custom header"
+        send get request to "http://httpbin.org/get"
+
+on get web request response:
+    set {_response} to event-connection
+    broadcast {_response}'s response code
+    broadcast {_response}'s response body
+    broadcast {_response}'s response header "Date"
+
+
+command asyncput:
+    trigger:
+        set {_header} to blank header
+        set {_header}'s properties "Content-Type" to "applicaiton/json"
+        set {_header}'s properties "User-Agent" to "SkriptWebAPI/0.0.1"
+        set {_header}'s properties "Custom" to "Custom header"
+        send put request to "http://httpbin.org/put" with header {_header} and body "{""json"":""body""}"
+        
+on put web request response:
+    set {_response} to event-connection
+    broadcast {_response}'s response code
+    broadcast {_response}'s response body
+    broadcast {_response}'s response header "Date"
+
+
+command asyncpost:
+    trigger:
+        set {_header} to blank header
+        set {_header}'s properties "Content-Type" to "applicaiton/json"
+        set {_header}'s properties "User-Agent" to "SkriptWebAPI/0.0.1"
+        set {_header}'s properties "Custom" to "Custom header"
+        send post request to "http://httpbin.org/post" with header {_header} and body "{""json"":""body""}"
+
+on post web request response:
+    set {_response} to event-connection
+    broadcast {_response}'s response code
+    broadcast {_response}'s response body
+    broadcast {_response}'s response header "Date"
+
+
+command asyncdelete:
+    trigger:
+        set {_header} to blank header
+        set {_header}'s properties "Content-Type" to "applicaiton/json"
+        set {_header}'s properties "User-Agent" to "SkriptWebAPI/0.0.1"
+        set {_header}'s properties "Custom" to "Custom header"
+        send delete request to "http://httpbin.org/delete" with header {_header} and body "{""json"":""body""}"
+
+on delete web request response:
+    set {_response} to event-connection
+    broadcast {_response}'s response code
+    broadcast {_response}'s response body
+    broadcast {_response}'s response header "Date"
+
+# ==== API Server feature ====
 
 on receive get request:
     set {_request} to event-request
