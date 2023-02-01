@@ -4,6 +4,7 @@ import ch.njol.skript.classes.ClassInfo
 import ch.njol.skript.expressions.base.EventValueExpression
 import ch.njol.skript.registrations.Classes
 import com.sun.net.httpserver.HttpExchange
+import jp.faketuna.addon.skriptwebapi.api.server.connection.HttpConnection
 import jp.faketuna.addon.skriptwebapi.api.server.events.DeleteRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.events.GetRequestEvent
 import jp.faketuna.addon.skriptwebapi.api.server.events.PostRequestEvent
@@ -53,6 +54,10 @@ class Types {
                 .usage("Delete request Event")
                 .defaultExpression(EventValueExpression(DeleteRequestEvent::class.java)))
 
+            Classes.registerClass(ClassInfo(HttpConnection::class.java, "httpcon")
+                .name("HttpConnection")
+                .user("httpcon")
+                .defaultExpression(EventValueExpression(HttpConnection::class.java)))
         }
     }
 }
