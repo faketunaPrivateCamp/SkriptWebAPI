@@ -28,12 +28,6 @@ class Types {
                 .user("(request|http ?exchange)")
                 .defaultExpression(EventValueExpression(HttpExchange::class.java)))
 
-            Classes.registerClass(ClassInfo(HttpURLConnection::class.java, "httpurlcon")
-                .name("HttpURLConnection")
-                .usage("HttpURLConnection instance")
-                .user("connection")
-                .defaultExpression(EventValueExpression(HttpURLConnection::class.java)))
-
             Classes.registerClass(ClassInfo(GetRequestEvent::class.java, "getrequestevent")
                 .name("GetRequestEvent")
                 .usage("Get request Event")
@@ -54,9 +48,9 @@ class Types {
                 .usage("Delete request Event")
                 .defaultExpression(EventValueExpression(DeleteRequestEvent::class.java)))
 
-            Classes.registerClass(ClassInfo(HttpConnection::class.java, "httpcon")
+            Classes.registerClass(ClassInfo(HttpConnection::class.java, "httpconnection")
                 .name("HttpConnection")
-                .user("httpcon")
+                .user("httpconnection")
                 .defaultExpression(EventValueExpression(HttpConnection::class.java)))
         }
     }

@@ -6,9 +6,9 @@ import ch.njol.skript.lang.SkriptEvent
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.registrations.EventValues
 import ch.njol.skript.util.Getter
+import jp.faketuna.addon.skriptwebapi.api.server.connection.HttpConnection
 import jp.faketuna.addon.skriptwebapi.api.server.events.DeleteResponseEvent
 import org.bukkit.event.Event
-import java.net.HttpURLConnection
 
 class EvtDeleteResponse: SkriptEvent() {
 
@@ -20,11 +20,11 @@ class EvtDeleteResponse: SkriptEvent() {
                         "broadcast {_response}'s response code\n" +
                         "broadcast {_response}'s response body\n" +
                         "broadcast {_response}'s response header \"Date\"")
-                .since("0.0.3")
+                .since("0.0.4")
 
-            EventValues.registerEventValue(DeleteResponseEvent::class.java, HttpURLConnection::class.java, object: Getter<HttpURLConnection, DeleteResponseEvent>(){
-                override fun get(e: DeleteResponseEvent): HttpURLConnection {
-                    return e.httpURLConnection
+            EventValues.registerEventValue(DeleteResponseEvent::class.java, HttpConnection::class.java, object: Getter<HttpConnection, DeleteResponseEvent>(){
+                override fun get(e: DeleteResponseEvent): HttpConnection {
+                    return e.httpConnection
                 }
             }, 0)
         }

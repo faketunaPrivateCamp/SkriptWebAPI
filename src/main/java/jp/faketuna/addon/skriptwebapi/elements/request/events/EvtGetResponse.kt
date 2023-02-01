@@ -6,9 +6,9 @@ import ch.njol.skript.lang.SkriptEvent
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.registrations.EventValues
 import ch.njol.skript.util.Getter
+import jp.faketuna.addon.skriptwebapi.api.server.connection.HttpConnection
 import jp.faketuna.addon.skriptwebapi.api.server.events.GetResponseEvent
 import org.bukkit.event.Event
-import java.net.HttpURLConnection
 
 class EvtGetResponse: SkriptEvent() {
 
@@ -20,11 +20,11 @@ class EvtGetResponse: SkriptEvent() {
                         "broadcast {_response}'s response code\n" +
                         "broadcast {_response}'s response body\n" +
                         "broadcast {_response}'s response header \"Date\"")
-                .since("0.0.3")
+                .since("0.0.4")
 
-            EventValues.registerEventValue(GetResponseEvent::class.java, HttpURLConnection::class.java, object: Getter<HttpURLConnection, GetResponseEvent>(){
-                override fun get(e: GetResponseEvent): HttpURLConnection {
-                    return e.httpURLConnection
+            EventValues.registerEventValue(GetResponseEvent::class.java, HttpConnection::class.java, object: Getter<HttpConnection, GetResponseEvent>(){
+                override fun get(e: GetResponseEvent): HttpConnection {
+                    return e.httpConnection
                 }
             }, 0)
         }

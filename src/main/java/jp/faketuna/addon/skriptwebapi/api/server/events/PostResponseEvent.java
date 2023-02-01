@@ -1,10 +1,9 @@
 
 package jp.faketuna.addon.skriptwebapi.api.server.events;
 
+import jp.faketuna.addon.skriptwebapi.api.server.connection.HttpConnection;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
-
-import java.net.HttpURLConnection;
 
 public class PostResponseEvent extends Event {
 
@@ -13,18 +12,18 @@ public class PostResponseEvent extends Event {
         return HANDLERS;
     }
 
-    private final HttpURLConnection connection;
+    private final HttpConnection connection;
 
     @Override
     public HandlerList getHandlers() {
         return HANDLERS;
     }
 
-    public PostResponseEvent(HttpURLConnection connection){
+    public PostResponseEvent(HttpConnection connection){
         this.connection = connection;
     }
 
-    public HttpURLConnection getHttpURLConnection() {
+    public HttpConnection getHttpConnection() {
         return this.connection;
     }
 

@@ -10,23 +10,23 @@ import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
+import jp.faketuna.addon.skriptwebapi.api.server.connection.HttpConnection
 import org.bukkit.event.Event
-import java.net.HttpURLConnection
 
 @Name("Get response header properties")
 @Description("It returns response header properties.")
 @Examples("set {_response} to response of get request to \"http://domain/\"\n" +
         "broadcast {_response}'s response header \"Date\"")
-@Since("0.0.2")
+@Since("0.0.4")
 class ExprGetResponseHeaderProperties: SimpleExpression<String>() {
 
     companion object{
         init {
-            Skript.registerExpression(ExprGetResponseHeaderProperties::class.java, String::class.java, ExpressionType.COMBINED, "[skeb] %httpurlcon%['s] response header [(properties|prop)] %string%")
+            Skript.registerExpression(ExprGetResponseHeaderProperties::class.java, String::class.java, ExpressionType.COMBINED, "[skeb] %httpconnection%['s] response header [(properties|prop)] %string%")
         }
     }
 
-    private var httpURLConnection: Expression<HttpURLConnection>? = null
+    private var httpConnection: Expression<HttpConnection>? = null
     private var headerProperties: Expression<String>? = null
 
     override fun getReturnType(): Class<out String> {
@@ -38,7 +38,7 @@ class ExprGetResponseHeaderProperties: SimpleExpression<String>() {
     }
 
     override fun init(exprs: Array<out Expression<*>>, matchedPattern: Int, isDelayed: Kleenean?, parser: SkriptParser.ParseResult?): Boolean {
-        httpURLConnection = exprs[0] as Expression<HttpURLConnection>?
+        httpConnection = exprs[0] as Expression<HttpConnection>?
         headerProperties = exprs[1] as Expression<String>
         return true
     }
@@ -48,10 +48,9 @@ class ExprGetResponseHeaderProperties: SimpleExpression<String>() {
     }
 
     override fun get(event: Event?): Array<String?>? {
-        val c = httpURLConnection!!.getSingle(event)
-        if (c != null){
-            val header = c.headerFields[headerProperties!!.getSingle(event)]?.joinToString(", ") ?: return null
-            return arrayOf(header)
+        val prop = httpConnection!!.getSingle(event)?.getResponseHeader()?.get(headerProperties?.getSingle(event))
+        if (prop != null){
+            return arrayOf(prop.joinToString(", "))
         }
         return null
     }

@@ -10,24 +10,23 @@ import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
+import jp.faketuna.addon.skriptwebapi.api.server.connection.HttpConnection
 import org.bukkit.event.Event
-import java.net.HttpURLConnection
-import java.nio.charset.Charset
 
 @Name("Get response body")
 @Description("It returns response body.")
 @Examples("set {_response} to response of get request to \"http://domain/\"\n" +
         "broadcast {_response}'s response body")
-@Since("0.0.2")
+@Since("0.0.4")
 class ExprGetResponseBody: SimpleExpression<String>() {
 
     companion object{
         init {
-            Skript.registerExpression(ExprGetResponseBody::class.java, String::class.java, ExpressionType.COMBINED, "[skeb] %httpurlcon%['s] response body")
+            Skript.registerExpression(ExprGetResponseBody::class.java, String::class.java, ExpressionType.COMBINED, "[skeb] %httpconnection%['s] response body")
         }
     }
 
-    private var httpURLConnection: Expression<HttpURLConnection>? = null
+    private var HttpConnection: Expression<HttpConnection>? = null
 
     override fun getReturnType(): Class<out String> {
         return String::class.java
@@ -38,7 +37,7 @@ class ExprGetResponseBody: SimpleExpression<String>() {
     }
 
     override fun init(exprs: Array<out Expression<*>>, matchedPattern: Int, isDelayed: Kleenean?, parser: SkriptParser.ParseResult?): Boolean {
-        httpURLConnection = exprs[0] as Expression<HttpURLConnection>?
+        HttpConnection = exprs[0] as Expression<HttpConnection>?
         return true
     }
 
@@ -47,9 +46,9 @@ class ExprGetResponseBody: SimpleExpression<String>() {
     }
 
     override fun get(event: Event?): Array<String?>? {
-        val c = httpURLConnection!!.getSingle(event)
-        if (c != null){
-            return arrayOf(c.inputStream.readBytes().toString(Charset.defaultCharset()))
+        val body = HttpConnection!!.getSingle(event)?.getResponseBody()
+        if (body != null){
+            return arrayOf(body)
         }
         return null
     }
