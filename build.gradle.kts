@@ -7,7 +7,7 @@ plugins {
     kotlin("jvm") version "1.7.10"
 }
 
-val group = "jp.faketuna"
+val group = "net.faketuna"
 val pluginVersion = "0.0.3a"
 val mcVersion = "1.19.3"
 java.sourceCompatibility=JavaVersion.VERSION_17
@@ -28,7 +28,7 @@ dependencies {
 }
 
 bukkit {
-    main = "jp.faketuna.addon.skriptwebapi.SkriptWebAPI"
+    main = "net.faketuna.addon.skriptwebapi.SkriptWebAPI"
 
     apiVersion = "1.19"
 

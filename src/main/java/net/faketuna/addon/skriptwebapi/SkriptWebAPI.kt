@@ -29,11 +29,11 @@ class SkriptWebAPI: JavaPlugin() {
         val skript = server.pluginManager.getPlugin("Skript")
 
         if (skript == null) {
-            logger.info("null!")
+            getLogger().info("null!")
         }
         addon = Skript.registerAddon(this)
         loadSkriptElements()
-        logger.info("[SkriptWebAPI] has been enabled")
+        getLogger().info("[SkriptWebAPI] has been enabled")
     }
 
     override fun onDisable() {
@@ -59,10 +59,10 @@ class SkriptWebAPI: JavaPlugin() {
     }
 
     private fun loadAPIServerElements(){
-        addon.loadClasses("jp.faketuna.addon.skriptwebapi.elements.server")
+        addon.loadClasses("net.faketuna.addon.skriptwebapi.elements.server")
     }
 
     private fun loadWebRequestElements(){
-        addon.loadClasses("jp.faketuna.addon.skriptwebapi.elements.request")
+        addon.loadClasses("net.faketuna.addon.skriptwebapi.elements.request")
     }
 }
