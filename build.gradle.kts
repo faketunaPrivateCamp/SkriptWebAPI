@@ -8,7 +8,7 @@ plugins {
 }
 
 val group = "net.faketuna"
-val pluginVersion = "0.0.3a"
+val pluginVersion = "0.0.3b"
 val mcVersion = "1.19.3"
 java.sourceCompatibility=JavaVersion.VERSION_17
 
