@@ -2,7 +2,13 @@
 
 [日本語のREADMEあります](/README_JA.MD)
 
-## Disclaimer
+# Notice
+
+## This addon is abandoned by addon author due to low motivation to Minecraft / Java.
+
+## In the future, I maybe release full rewrite version of this addon. But not decided yet.
+
+# Disclaimer
 
 I will not responsible for loss, trouble etc. caused by using this plugin. Please use at your own risk.
 
