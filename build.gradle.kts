@@ -8,7 +8,7 @@ plugins {
 }
 
 val group = "net.faketuna"
-val pluginVersion = "0.0.3b"
+val pluginVersion = "0.0.4"
 val mcVersion = "1.19.3"
 java.sourceCompatibility=JavaVersion.VERSION_17
 
@@ -30,7 +30,7 @@ dependencies {
 bukkit {
     main = "net.faketuna.addon.skriptwebapi.SkriptWebAPI"
 
-    apiVersion = "1.19"
+    apiVersion = "1.13"
 
     name = "SKeb"
     authors = listOf("ft")
