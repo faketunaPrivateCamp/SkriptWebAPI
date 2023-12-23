@@ -4,9 +4,7 @@
 
 # Notice
 
-## This addon is abandoned by addon author due to low motivation to Minecraft / Java.
-
-## In the future, I maybe release full rewrite version of this addon. But not decided yet.
+## This addon is under refactor/rewriting
 
 # Disclaimer
 
@@ -27,24 +25,24 @@ I will not responsible for loss, trouble etc. caused by using this plugin. Pleas
 
 ## About
 
-Allow to use API server feature, Web Request feature easily on Minecraft servers with Skript.
+Able to construct API Server, Use web request feature in Skript easily.
 
 ## Features
 
-- Allow to build HTTP API Server
-- Can send Web Request
+- HTTP API Server
+- Web Request
 
 ## Install
 
-Might not be work in spigot server. Please use Paper server or Paper fork server.
+This plugin requires paper server or paper based server.
 
-Now only work with 1.19.3 server. Older version is supporting soon.
+This plugin able to load in 1.13 or higher with Skript 2.7.3 or higher. but 1.20.2 or higher is officially supported.
 
-1. Download `SkriptWebAPI-<Version>.jar` from [here](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases). Lager number mean recent.
+1. Download `SkriptWebAPI-<Version>.jar` from [here](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases).
 2. Put your downloaded jar to server plugins folder
 3. Run and ready to use
 
-## Documentation
+## Documentation (Is not synchronised with this branch)
 
 Example and syntax has provided in Skript Hub
 
@@ -75,4 +73,4 @@ If someone know forcing this syntax above please open issue.
 
 ## Todo
 
-- Test and allow to load in 1.12.2 ~ 1.19.2
+- Done refactoring/rewriting the entire code.
