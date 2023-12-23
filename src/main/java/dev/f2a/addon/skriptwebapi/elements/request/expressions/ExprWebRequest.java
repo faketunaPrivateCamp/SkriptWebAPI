@@ -20,9 +20,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 
-@Name("Send normal web request")
-@Description("Later | This method is may cause lag spike. If you encountered the lag spike please use async web request instead.")
-@Examples("Later")
+@Name("Send web request")
+@Description("Send a normal web request.\n" +
+        "This method is may cause lag spike.\n" +
+        "If you encountered the lag spike, please use async web request instead.")
+@Examples("TODO()")
 @Since("0.1.0")
 public class ExprWebRequest extends SimpleExpression<HttpResponse> {
 

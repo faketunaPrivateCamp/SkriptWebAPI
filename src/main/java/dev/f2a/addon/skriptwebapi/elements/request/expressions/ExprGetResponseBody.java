@@ -22,8 +22,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Name("Retrieve body from web request response")
-@Description("Later")
-@Examples("Later")
+@Description("Retrieve body from web request response")
+@Examples("TODO()")
 @Since("0.1.0")
 public class ExprGetResponseBody extends SimpleExpression<String> {
 

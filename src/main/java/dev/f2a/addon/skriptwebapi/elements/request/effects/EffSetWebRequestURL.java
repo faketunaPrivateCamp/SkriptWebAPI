@@ -14,9 +14,10 @@ import com.google.api.client.http.HttpRequest;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
-@Name("Set web request target URL")
-@Description("Later")
-@Examples("Later")
+@Name("Set web request URL")
+@Description("Set web request URL as you specified.\n" +
+        "Only supports: HTTP, HTTPS")
+@Examples("TODO()")
 @Since("0.1.0")
 public class EffSetWebRequestURL extends Effect {
 

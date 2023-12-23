@@ -21,8 +21,10 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 
 @Name("Retrieve the new web request instance")
-@Description("Later | default is get | Patch method is not supported.")
-@Examples("Later")
+@Description("Retrieve the new web request instance.\n" +
+        "You can specify request method. If you don't specified It will use GET as default method\n" +
+        "Patch method is not supported.")
+@Examples("TODO()")
 @Since("0.1.0")
 public class ExprGetNewHTTPRequest extends SimpleExpression<HttpRequest> {
 

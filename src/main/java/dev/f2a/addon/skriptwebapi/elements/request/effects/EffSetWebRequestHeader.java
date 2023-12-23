@@ -13,8 +13,8 @@ import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
 @Name("Set web request header")
-@Description("Later")
-@Examples("Later")
+@Description("Set the web request header information.")
+@Examples("TODO()")
 @Since("0.1.0")
 public class EffSetWebRequestHeader extends Effect {
 

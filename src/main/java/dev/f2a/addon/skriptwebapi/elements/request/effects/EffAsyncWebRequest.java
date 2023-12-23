@@ -21,8 +21,9 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 
 @Name("Send a async web request")
-@Description("Later")
-@Examples("Later")
+@Description("Send a async web request to specified URL.\n" +
+        "Response can be obtain from HttpResponseEvent.")
+@Examples("TODO()")
 @Since("0.1.0")
 public class EffAsyncWebRequest extends Effect {
 
