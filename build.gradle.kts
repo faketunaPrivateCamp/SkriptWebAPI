@@ -4,10 +4,9 @@ plugins {
     id("java")
     id("net.minecrell.plugin-yml.bukkit") version "0.5.2"
     id("com.github.johnrengelman.shadow") version "7.1.2"
-    kotlin("jvm") version "1.7.10"
 }
 
-val group = "net.faketuna"
+val group = "dev.f2a"
 val pluginVersion = "0.1.0"
 val mcVersion = "1.20.2"
 java.sourceCompatibility=JavaVersion.VERSION_17
@@ -33,7 +32,7 @@ bukkit {
 
     name = "SKeb"
     authors = listOf("ft")
-    description = "the Web request and API Server addon for Skript"
+    description = "Web request and HTTP Server addon for Skript"
     version = pluginVersion
     depend = listOf("Skript")
     prefix = "SKeb"
@@ -51,12 +50,6 @@ bukkit {
      */
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
-    }
-}
 tasks {
     "shadowJar"(ShadowJar::class) {
         archiveBaseName.set("SkriptWebAPI")
