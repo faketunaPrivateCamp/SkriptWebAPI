@@ -62,7 +62,7 @@ public class ExprGetHeaderObject extends SimpleExpression<HttpHeaders> {
 
     @Override
     public String toString(@Nullable Event e, boolean debug) {
-        return null;
+        return "";
     }
 
     @Override
