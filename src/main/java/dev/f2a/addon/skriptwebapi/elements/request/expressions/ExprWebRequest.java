@@ -68,6 +68,10 @@ public class ExprWebRequest extends SimpleExpression<HttpResponse> {
         } catch (IOException ex) {
             Skript.error("Something went wrong while sending web request!");
             ex.printStackTrace();
+            return null;
+        } catch (IllegalArgumentException ex) {
+            Skript.error("Your specified request method is not supported!");
+            return null;
         }
         return response;
     }

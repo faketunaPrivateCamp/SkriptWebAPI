@@ -33,7 +33,7 @@ public class EffSetHeaderValue extends Effect {
             return;
         }
         if(key == null || key.isEmpty()) {
-            Skript.error("Key is cannot be blank!");
+            Skript.error("Header key is cannot be blank!");
             return;
         }
 
