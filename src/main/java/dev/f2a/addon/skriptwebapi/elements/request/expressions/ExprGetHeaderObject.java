@@ -35,13 +35,11 @@ public class ExprGetHeaderObject extends SimpleExpression<HttpHeaders> {
         Object instance = unParsedExpr.getSingle(e);
 
         if(instance instanceof HttpRequest) {
-            Bukkit.broadcast(Component.text("HttpRequest"));
             HttpRequest request = (HttpRequest) unParsedExpr.getSingle(e);
             headers[0] = request.getHeaders();
             return headers;
         }
         else if(instance instanceof HttpResponse){
-            Bukkit.broadcast(Component.text("HttpResponse"));
             HttpResponse response = (HttpResponse) unParsedExpr.getSingle(e);
             headers[0] = response.getHeaders();
             return headers;
