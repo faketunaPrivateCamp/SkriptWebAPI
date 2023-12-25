@@ -3,6 +3,7 @@ package dev.f2a.addon.skriptwebapi.elements;
 import ch.njol.skript.classes.ClassInfo;
 import ch.njol.skript.expressions.base.EventValueExpression;
 import ch.njol.skript.registrations.Classes;
+import com.google.api.client.http.HttpHeaders;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpResponse;
 
@@ -20,6 +21,12 @@ public class Types {
                 .usage("Http response instance")
                 .user("httpresponse")
                 .defaultExpression(new EventValueExpression(HttpResponse.class))
+        );
+        Classes.registerClass(new ClassInfo(HttpHeaders.class, "httpheader")
+                .name("httpheader")
+                .usage("Http headers instance")
+                .user("httpheader")
+                .defaultExpression(new EventValueExpression(HttpHeaders.class))
         );
     }
 }
