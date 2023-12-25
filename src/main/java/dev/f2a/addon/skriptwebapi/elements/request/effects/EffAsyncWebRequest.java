@@ -12,7 +12,7 @@ import ch.njol.util.Kleenean;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpResponse;
 import dev.f2a.addon.skriptwebapi.SkriptWebAPI;
-import dev.f2a.addon.skriptwebapi.internal.events.HttpResponseEvent;
+import dev.f2a.addon.skriptwebapi.internal.events.WebRequestResponseEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.Plugin;
@@ -61,7 +61,7 @@ public class EffAsyncWebRequest extends Effect {
             try {
                 HttpResponse response = request.execute();
                 Bukkit.getScheduler().callSyncMethod(plugin, () -> {
-                    Bukkit.getPluginManager().callEvent(new HttpResponseEvent(response));
+                    Bukkit.getPluginManager().callEvent(new WebRequestResponseEvent(response));
                     return null;
                 });
             } catch (IOException ex) {

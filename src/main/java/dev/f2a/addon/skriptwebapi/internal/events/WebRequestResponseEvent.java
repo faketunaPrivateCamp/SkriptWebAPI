@@ -4,7 +4,7 @@ import com.google.api.client.http.HttpResponse;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class HttpResponseEvent extends Event {
+public class WebRequestResponseEvent extends Event {
 
     public static final HandlerList HANDLERS = new HandlerList();
     public static HandlerList getHandlerList() {
@@ -18,7 +18,7 @@ public class HttpResponseEvent extends Event {
         return HANDLERS;
     }
 
-    public HttpResponseEvent(HttpResponse response) {
+    public WebRequestResponseEvent(HttpResponse response) {
         this.httpResponse = response;
     }
 
