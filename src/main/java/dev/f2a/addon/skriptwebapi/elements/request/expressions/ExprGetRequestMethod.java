@@ -35,13 +35,11 @@ public class ExprGetRequestMethod extends SimpleExpression<String> {
         Object instance = unParsedExpr.getSingle(e);
 
         if(instance instanceof HttpRequest) {
-            Bukkit.broadcast(Component.text("HttpRequest"));
             HttpRequest request = (HttpRequest) unParsedExpr.getSingle(e);
             method[0] = request.getRequestMethod();
             return method;
         }
         else if(instance instanceof HttpResponse){
-            Bukkit.broadcast(Component.text("HttpResponse"));
             HttpResponse response = (HttpResponse) unParsedExpr.getSingle(e);
             method[0] = response.getRequest().getRequestMethod();
             return method;
