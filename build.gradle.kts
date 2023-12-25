@@ -20,6 +20,7 @@ repositories {
 }
 
 dependencies {
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.google.http-client:google-http-client:1.43.3")
     compileOnly("com.github.SkriptLang:Skript:2.7.3")
     compileOnly("io.papermc.paper:paper-api:${mcVersion}-R0.1-SNAPSHOT")
