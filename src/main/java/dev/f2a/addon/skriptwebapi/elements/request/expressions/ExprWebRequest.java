@@ -49,17 +49,17 @@ public class ExprWebRequest extends SimpleExpression<HttpResponse> {
 
         if(request == null) {
             Skript.error("Failed to get http request instance when sending http request.");
-            throw new NullPointerException("Failed to get http request instance when sending http request.");
+            return null;
         }
 
         if(request.getUrl().getHost().isEmpty()) {
             Skript.error("Request URL is cannot be empty!");
-            throw new IllegalStateException("Request URL is cannot be empty!");
+            return null;
         }
 
         if(request.getRequestMethod().isEmpty()) {
             Skript.error("Request method is cannot be empty!");
-            throw new IllegalStateException("Request method is cannot be empty!");
+            return null;
         }
 
         HttpResponse[] response = new HttpResponse[1];

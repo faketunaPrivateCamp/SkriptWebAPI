@@ -48,7 +48,7 @@ public class ExprGetHeaderObject extends SimpleExpression<HttpHeaders> {
         }
         else {
             Skript.error("Provided HttpRequest or HttpResponse instance is null!");
-            throw new NullPointerException("Provided HttpRequest or HttpResponse instance is null!");
+            return null;
         }
     }
 

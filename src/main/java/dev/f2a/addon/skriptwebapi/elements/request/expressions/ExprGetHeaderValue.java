@@ -32,7 +32,7 @@ public class ExprGetHeaderValue extends SimpleExpression<String> {
 
         if(headers == null) {
             Skript.error("Provided HttpHeaders instance is null!");
-            throw new NullPointerException("Provided HttpHeaders instance is null!");
+            return null;
         }
 
         retr[0] = headers.getFirstHeaderStringValue(headerProp);

@@ -30,11 +30,11 @@ public class EffSetHeaderValue extends Effect {
 
         if(headers == null) {
             Skript.error("Provided HttpHeaders instance is null!");
-            throw new NullPointerException("Provided HttpHeaders instance is null!");
+            return;
         }
         if(key == null || key.isEmpty()) {
             Skript.error("Key is cannot be blank!");
-            throw new IllegalStateException("Key is cannot be blank!");
+            return;
         }
 
         headers.set(key, value);
