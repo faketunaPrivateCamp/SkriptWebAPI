@@ -53,15 +53,12 @@ public class ExprGetNewHTTPRequest extends SimpleExpression<HttpRequest> {
             if(method != null) {
                 switch (method.toUpperCase()) {
                     case "PATCH" -> {
-                        Bukkit.broadcast(Component.text("PATCH"));
                         newRequest[0] = SkriptWebAPI.getHttpRequestFactory().buildPatchRequest(null, null);
                     }
                     case "HEAD" -> {
-                        Bukkit.broadcast(Component.text("HEAD"));
                         newRequest[0] = SkriptWebAPI.getHttpRequestFactory().buildHeadRequest(null);
                     }
                     default -> {
-                        Bukkit.broadcast(Component.text(method));
                         newRequest[0] = SkriptWebAPI.getHttpRequestFactory().buildRequest(method, null, null);
                     }
                 }
