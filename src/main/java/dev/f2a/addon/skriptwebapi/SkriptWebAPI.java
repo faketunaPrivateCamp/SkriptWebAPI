@@ -3,6 +3,7 @@ package dev.f2a.addon.skriptwebapi;
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 import com.google.api.client.http.HttpRequestFactory;
+import com.google.api.client.http.apache.v2.ApacheHttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import dev.f2a.addon.skriptwebapi.elements.Types;
 import org.bukkit.plugin.Plugin;
@@ -14,7 +15,7 @@ public class SkriptWebAPI extends JavaPlugin {
 
     private static Plugin plugin;
     private SkriptAddon skriptAddon;
-    private static final HttpRequestFactory HTTP_REQUEST_FACTORY = new NetHttpTransport().createRequestFactory();
+    private static final HttpRequestFactory HTTP_REQUEST_FACTORY = new ApacheHttpTransport().createRequestFactory();
 
     public static HttpRequestFactory getHttpRequestFactory() {
         return HTTP_REQUEST_FACTORY;
