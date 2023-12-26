@@ -1,6 +1,5 @@
 package dev.f2a.addon.skriptwebapi.internal.events;
 
-import com.google.api.client.http.HttpResponse;
 import com.sun.net.httpserver.HttpExchange;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
@@ -23,7 +22,7 @@ public class HttpRequestEvent extends Event {
         this.httpExchange = httpExchange;
     }
 
-    public HttpExchange getHttpResponse() {
+    public HttpExchange getHttpExchange() {
         return this.httpExchange;
     }
 }
