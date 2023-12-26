@@ -23,7 +23,7 @@ public class EffStartHttpServer extends Effect {
     static {
         Skript.registerEffect(
                 EffStartHttpServer.class,
-                "[skeb] start http server [(in|on) port %-integer%]"
+                "[skeb] start http server [(in|on) port %-integer%] [[(and|with)] context %-string%]"
         );
     }
 
@@ -31,16 +31,23 @@ public class EffStartHttpServer extends Effect {
     private final int TEMP_DEFAULT_PORT = 8080;
 
     private Expression<Integer> serverPort;
+    private Expression<String> contextPath;
 
 
     @Override
     protected void execute(Event e) {
         Integer port = TEMP_DEFAULT_PORT;
+        String context = "/";
+
         if(serverPort != null) {
             port = serverPort.getSingle(e);
         }
 
-        SkebServerStatus status = SkebHttpServer.runServer(port, "/");
+        if(contextPath != null) {
+            context = contextPath.getSingle(e);
+        }
+
+        SkebServerStatus status = SkebHttpServer.runServer(port, context);
 
         switch (status) {
             case SERVER_IS_RUNNING -> {
@@ -67,6 +74,7 @@ public class EffStartHttpServer extends Effect {
     @SuppressWarnings("unchecked")
     public boolean init(Expression<?>[] exprs, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
         if(exprs[0] != null) serverPort = (Expression<Integer>) exprs[0];
+        if(exprs[1] != null) contextPath = (Expression<String>) exprs[1];
         return true;
     }
 }
