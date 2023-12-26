@@ -24,7 +24,7 @@ public class ExprGetHTTPRequestBody extends SimpleExpression<String> {
                 ExprGetHTTPRequestBody.class,
                 String.class,
                 ExpressionType.SIMPLE,
-                "[skeb] (content|body) of %httpexchange%"
+                "[skeb] (http|api) request (content|body) of %httpexchange%"
         );
     }
 
