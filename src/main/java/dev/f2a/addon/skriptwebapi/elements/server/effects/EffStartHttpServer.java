@@ -10,6 +10,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import dev.f2a.addon.skriptwebapi.internal.http.SkebHttpServer;
+import dev.f2a.addon.skriptwebapi.internal.http.SkebServerStatus;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,7 +22,7 @@ public class EffStartHttpServer extends Effect {
 
     static {
         Skript.registerEffect(
-                EffSendHttpResponse.class,
+                EffStartHttpServer.class,
                 "[skeb] start http server [(in|on) port %-integer%]"
         );
     }
@@ -34,14 +35,26 @@ public class EffStartHttpServer extends Effect {
 
     @Override
     protected void execute(Event e) {
-        Integer port = serverPort.getSingle(e);
-        if(port == null) {
-            port = TEMP_DEFAULT_PORT;
+        Integer port = TEMP_DEFAULT_PORT;
+        if(serverPort != null) {
+            port = serverPort.getSingle(e);
         }
 
-        boolean status = SkebHttpServer.runServer(port);
-        if(!status) {
-            Skript.warning("HTTP server failed to start! server is already running or exception occurred!");
+        SkebServerStatus status = SkebHttpServer.runServer(port, "/");
+
+        switch (status) {
+            case SERVER_IS_RUNNING -> {
+                Skript.warning("HTTP server is already running!");
+            }
+            case EXCEPTION_OCCURRED -> {
+                Skript.warning("Exception occurred while starting the HTTP server!");
+            }
+            case CONTEXT_PATH_NOT_START_WITH_SLASH -> {
+                Skript.warning("The context path must start with a slash!");
+            }
+            case CONTEXT_PATH_NOT_END_WITH_SLASH -> {
+                Skript.warning("The context path must end with a slash!");
+            }
         }
     }
 

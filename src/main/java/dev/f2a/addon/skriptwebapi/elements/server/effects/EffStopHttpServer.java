@@ -10,6 +10,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import dev.f2a.addon.skriptwebapi.internal.http.SkebHttpServer;
+import dev.f2a.addon.skriptwebapi.internal.http.SkebServerStatus;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
@@ -21,7 +22,7 @@ public class EffStopHttpServer extends Effect {
 
     static {
         Skript.registerEffect(
-                EffSendHttpResponse.class,
+                EffStopHttpServer.class,
                 "[skeb] stop http server"
         );
     }
@@ -29,9 +30,15 @@ public class EffStopHttpServer extends Effect {
 
     @Override
     protected void execute(Event e) {
-        boolean status = SkebHttpServer.stopServer();
-        if(!status) {
-            Skript.warning("HTTP server failed to stop! server is not running or exception occurred!");
+        SkebServerStatus status = SkebHttpServer.stopServer();
+
+        switch (status){
+            case SERVER_IS_STOPPED -> {
+                Skript.warning("HTTP server is already stopped!");
+            }
+            case EXCEPTION_OCCURRED -> {
+                Skript.warning("Exception occurred while stopping the HTTP server!");
+            }
         }
     }
 

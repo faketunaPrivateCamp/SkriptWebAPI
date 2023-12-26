@@ -19,24 +19,29 @@ public class SkebHttpServer {
         return isRunning;
     }
 
-    public static boolean runServer(int port) {
-        if(isRunning) return false;
+    public static SkebServerStatus runServer(int port, String contextPath) {
+        if(isRunning) return SkebServerStatus.SERVER_IS_RUNNING;
+        if(!contextPath.startsWith("/")) return SkebServerStatus.CONTEXT_PATH_NOT_START_WITH_SLASH;
+        if(!contextPath.endsWith("/")) return SkebServerStatus.CONTEXT_PATH_NOT_END_WITH_SLASH;
+
         try {
             var server =  HttpServer.create(new InetSocketAddress(port), 0);
             server.createContext("/", new SkebHttpHandler());
             server.start();
             httpServer = server;
+            isRunning = true;
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
+            return SkebServerStatus.EXCEPTION_OCCURRED;
         }
-        return true;
+        return SkebServerStatus.OPERATION_SUCCESS;
     }
 
-    public static boolean stopServer() {
-        if(!isRunning) return false;
+    public static SkebServerStatus stopServer() {
+        if(!isRunning) return SkebServerStatus.SERVER_IS_STOPPED;
         httpServer.stop(0);
-        return true;
+        isRunning = false;
+        return SkebServerStatus.OPERATION_SUCCESS;
     }
 
     private static class SkebHttpHandler implements HttpHandler {
