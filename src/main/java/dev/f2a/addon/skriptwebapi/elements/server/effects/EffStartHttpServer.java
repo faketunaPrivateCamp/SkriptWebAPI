@@ -26,6 +26,7 @@ public class EffStartHttpServer extends Effect {
         );
     }
 
+    // TODO Will be implement the plugin config to specify default port.
     private final int TEMP_DEFAULT_PORT = 8080;
 
     private Expression<Integer> serverPort;
