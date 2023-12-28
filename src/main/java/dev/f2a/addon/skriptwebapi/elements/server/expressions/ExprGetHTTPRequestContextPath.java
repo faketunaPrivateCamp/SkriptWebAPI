@@ -35,7 +35,7 @@ public class ExprGetHTTPRequestContextPath extends SimpleExpression<String> {
             return null;
         }
 
-        retr[0] = exchange.getHttpContext().getPath();
+        retr[0] = exchange.getRequestURI().getPath();
         return retr;
     }
 
