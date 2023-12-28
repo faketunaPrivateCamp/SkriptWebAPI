@@ -15,9 +15,9 @@ import org.jetbrains.annotations.Nullable;
 
 @Name("Set web request method")
 @Description("Set web request method as you specified.\n" +
-        "Supported methods: DELETE, GET, HEAD, POST, PUT\n" +
-        "You cannot set method to PATCH.")
-@Examples("TODO()")
+        "Supported basic methods and custom methods")
+@Examples("set {_request} to new http request" +
+        "set {_request}'s request method to \"PATCH\"")
 @Since("0.1.0")
 public class EffSetWebRequestMethod extends Effect {
 

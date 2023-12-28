@@ -1,6 +1,10 @@
 package dev.f2a.addon.skriptwebapi.elements.server.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -17,6 +21,12 @@ import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Name("Get HTTP request body")
+@Description("Retrieves body from HTTP request")
+@Examples("on http request received:\n" +
+        "    set {_request} to event-httpexchange\n" +
+        "    set {_body} to http request body of {_request}")
+@Since("0.1.0")
 public class ExprGetHTTPRequestBody extends SimpleExpression<String> {
 
     static {

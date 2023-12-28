@@ -23,7 +23,9 @@ import java.util.stream.Stream;
 
 @Name("Retrieve body from web request response")
 @Description("Retrieve body from web request response")
-@Examples("TODO()")
+@Examples("on web request response:\n" +
+        "    set {_response} to event-httpresponse\n" +
+        "    set {_body} to body of {_response}")
 @Since("0.1.0")
 public class ExprGetResponseBody extends SimpleExpression<String> {
 

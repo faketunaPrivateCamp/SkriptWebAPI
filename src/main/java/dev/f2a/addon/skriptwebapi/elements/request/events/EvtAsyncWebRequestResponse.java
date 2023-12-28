@@ -16,7 +16,14 @@ public class EvtAsyncWebRequestResponse extends SkriptEvent {
     static {
         Skript.registerEvent("", EvtAsyncWebRequestResponse.class, WebRequestResponseEvent.class, "[skeb] web request response")
                 .description("Event dscription")
-                .examples("TODO")
+                .examples("on web request response:\n" +
+                        "    set {_response} to event-httpresponse\n" +
+                        "    set {_body} to body of {_response}\n" +
+                        "    set {_method} to request method of {_response}\n" +
+                        "    broadcast \"server: %{_response}'s header value from key \"server\"%\"\n" +
+                        "    broadcast \"1: %{_body}%\"\n" +
+                        "    broadcast \"2: %status code of {_response}%\"\n" +
+                        "    broadcast \"3: %request method of {_response}%\"")
                 .since("0.1.0");
 
         EventValues.registerEventValue(WebRequestResponseEvent.class, HttpResponse.class, new Getter<HttpResponse, WebRequestResponseEvent>() {

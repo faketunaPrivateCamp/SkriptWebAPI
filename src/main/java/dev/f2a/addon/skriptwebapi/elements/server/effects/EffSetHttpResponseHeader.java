@@ -1,6 +1,10 @@
 package dev.f2a.addon.skriptwebapi.elements.server.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -9,6 +13,12 @@ import com.sun.net.httpserver.HttpExchange;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Set http response header")
+@Description("Set HTTP response header to as you specified.")
+@Examples("on http request received:\n" +
+        "    set {_request} to event-httpexchange\n" +
+        "    set http response {_request}'s header \"Custom\" to \"Custom header\"")
+@Since("0.1.0")
 public class EffSetHttpResponseHeader extends Effect {
 
     static {

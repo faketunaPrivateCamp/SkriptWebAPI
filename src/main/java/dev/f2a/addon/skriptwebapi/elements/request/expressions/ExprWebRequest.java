@@ -22,9 +22,20 @@ import java.io.IOException;
 
 @Name("Send web request")
 @Description("Send a normal web request.\n" +
-        "This method is may cause lag spike.\n" +
+        "This method will cause lag spike.\n" +
         "If you encountered the lag spike, please use async web request instead.")
-@Examples("TODO()")
+@Examples("set {_request} to new http request with method \"PATCH\"\n" +
+        "set {_request}'s target url to \"https://domain\"\n" +
+        "set {_request}'s header \"Custom\" to \"Test\"\n" +
+        "set {_request}'s header \"Content-Type\" to \"application/json\"\n" +
+        "set {_request}'s header \"User-Agent\" to \"SkriptWebAPI/0.1.0\"\n" +
+        "set {_request}'s body to \"{\"\"json\"\":\"\"test\"\"}\"\n" +
+        "set {_response} to response of {_request}\n" +
+        "set {_body} to body of {_response}\n" +
+        "broadcast \"server: %{_response}'s header value from key \"server\"%\"\n" +
+        "broadcast \"Body: %{_body}%\"\n" +
+        "broadcast \"Status code: %status code of {_response}%\"\n" +
+        "broadcast \"Request method: %request method of {_response}%\"")
 @Since("0.1.0")
 public class ExprWebRequest extends SimpleExpression<HttpResponse> {
 

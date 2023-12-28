@@ -1,6 +1,10 @@
 package dev.f2a.addon.skriptwebapi.elements.request.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -14,6 +18,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Get request method")
+@Description("Get request method of web request/response")
+@Examples("on web request response:\n" +
+        "    set {_response} to event-httpresponse\n" +
+        "    set {_method} to request method of {_response}")
+@Since("0.1.0")
 public class ExprGetRequestMethod extends SimpleExpression<String> {
 
     static {

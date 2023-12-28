@@ -24,7 +24,7 @@ import java.io.IOException;
 @Description("Retrieve the new web request instance.\n" +
         "You can specify request method. If you don't specified It will use GET as default method\n" +
         "Patch method is not supported.")
-@Examples("TODO()")
+@Examples("set {_request} to new http request with method \"PUT\"")
 @Since("0.1.0")
 public class ExprGetNewHTTPRequest extends SimpleExpression<HttpRequest> {
 

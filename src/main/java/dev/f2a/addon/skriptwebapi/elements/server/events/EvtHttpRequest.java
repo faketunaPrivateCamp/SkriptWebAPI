@@ -16,7 +16,18 @@ public class EvtHttpRequest extends SkriptEvent {
     static {
         Skript.registerEvent("", EvtHttpRequest.class, HttpRequestEvent.class, "[skeb] http request [received]")
                 .description("Event dscription")
-                .examples("TODO")
+                .examples("on http request received:\n" +
+                        "    set {_request} to event-httpexchange\n" +
+                        "    set {_method} to http request method of {_request}\n" +
+                        "    set {_body} to http request body of {_request}\n" +
+                        "    set {_userAgent} to http request {_request} request header value from key \"User-Agent\"\n" +
+                        "    set {_path} to http request context path of {_request}\n" +
+                        "    broadcast \"HTTP REQUEST!\"\n" +
+                        "    broadcast \"METHOD: %{_method}%\"\n" +
+                        "    broadcast \"BDOY: %{_body}%\"\n" +
+                        "    broadcast \"UA: %{_userAgent}%\"\n" +
+                        "    broadcast \"Context: %{_path}%\"\n" +
+                        "    reply {_request} with body \"{\"\"body\"\":\"\"body\"\"}\" and response code 200")
                 .since("0.1.0");
 
         EventValues.registerEventValue(HttpRequestEvent.class, HttpExchange.class, new Getter<>() {

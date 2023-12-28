@@ -1,6 +1,10 @@
 package dev.f2a.addon.skriptwebapi.elements.request.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -9,6 +13,10 @@ import com.google.api.client.http.HttpHeaders;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Remove header value")
+@Description("Rewrite")
+@Examples("")
+@Since("0.1.0")
 public class EffRemoveHeaderValue extends Effect {
 
     static {

@@ -15,9 +15,9 @@ import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
 @Name("Set web request URL")
-@Description("Set web request URL as you specified.\n" +
-        "Only supports: HTTP, HTTPS")
-@Examples("TODO()")
+@Description("Set web request URL as you specified.")
+@Examples("set {_request} to new http request with method \"PATCH\"\n" +
+        "set {_request}'s target url to \"https://domain/\"")
 @Since("0.1.0")
 public class EffSetWebRequestURL extends Effect {
 

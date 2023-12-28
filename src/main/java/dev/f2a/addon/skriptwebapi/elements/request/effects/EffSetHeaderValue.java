@@ -1,6 +1,10 @@
 package dev.f2a.addon.skriptwebapi.elements.request.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -11,6 +15,12 @@ import com.google.api.client.http.HttpResponse;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Set web request header value")
+@Description("Set the web request header to specified key and value")
+@Examples("set {_request} to new http request with method \"GET\"\n" +
+        "set {_request}'s target url to \"https://domain/\"\n" +
+        "set {_request}'s header \"Custom\" to \"Test\"")
+@Since("0.1.0")
 public class EffSetHeaderValue extends Effect {
 
     static {

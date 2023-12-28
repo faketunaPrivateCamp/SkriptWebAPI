@@ -17,8 +17,11 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 @Name("Response to web request")
-@Description("")
-@Examples("")
+@Description("Responses request with custom body and response code.\n" +
+        "If not specify the response code, It will response with a 500.")
+@Examples("on http request received:\n" +
+        "    set {_request} to event-httpexchange\n" +
+        "    reply {_request} with body \"{\"\"body\"\":\"\"body\"\"}\" and response code 200")
 @Since("0.1.0")
 public class EffSendHttpResponse extends Effect {
 

@@ -23,7 +23,24 @@ import java.io.IOException;
 @Name("Send a async web request")
 @Description("Send a async web request to specified URL.\n" +
         "Response can be obtain from HttpResponseEvent.")
-@Examples("TODO()")
+@Examples("command asyncpatch:\n" +
+        "    trigger:\n" +
+        "        set {_request} to new http request with method \"PATCH\"\n" +
+        "        set {_request}'s target url to \"https://domain/\"\n" +
+        "        set {_request}'s header \"Custom\" to \"Test\"\n" +
+        "        set {_request}'s header \"Content-Type\" to \"application/json\"\n" +
+        "        set {_request}'s header \"User-Agent\" to \"SkriptWebAPI/0.1.0\"\n" +
+        "        set {_request}'s body to \"{\"\"json\"\":\"\"test\"\"}\"\n" +
+        "        send async web request with {_request}" +
+        "" +
+        "on web request response:\n" +
+        "    set {_response} to event-httpresponse\n" +
+        "    set {_body} to body of {_response}\n" +
+        "    set {_method} to request method of {_response}\n" +
+        "    broadcast \"server: %{_response}'s header value from key \"server\"%\"\n" +
+        "    broadcast \"1: %{_body}%\"\n" +
+        "    broadcast \"2: %status code of {_response}%\"\n" +
+        "    broadcast \"3: %request method of {_response}%\"")
 @Since("0.1.0")
 public class EffAsyncWebRequest extends Effect {
 

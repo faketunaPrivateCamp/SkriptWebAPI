@@ -1,6 +1,10 @@
 package dev.f2a.addon.skriptwebapi.elements.request.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -12,6 +16,12 @@ import com.google.api.client.http.HttpResponse;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Get header value")
+@Description("Get header value from web request/response")
+@Examples("on web request response:\n" +
+        "    set {_response} to event-httpresponse\n" +
+        "    set {_server} to {_response}'s header value from key \"server\"")
+@Since("0.1.0")
 public class ExprGetHeaderValue extends SimpleExpression<String> {
 
     static {

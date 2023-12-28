@@ -1,6 +1,10 @@
 package dev.f2a.addon.skriptwebapi.elements.server.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -10,6 +14,12 @@ import com.sun.net.httpserver.HttpExchange;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
+@Name("Get HTTP request method")
+@Description("Retrieves request method from HTTP request")
+@Examples("on http request received:\n" +
+        "    set {_request} to event-httpexchange\n" +
+        "    set {_method} to http request method of {_request}")
+@Since("0.1.0")
 public class ExprGetHTTPRequestMethod extends SimpleExpression<String> {
 
     static {

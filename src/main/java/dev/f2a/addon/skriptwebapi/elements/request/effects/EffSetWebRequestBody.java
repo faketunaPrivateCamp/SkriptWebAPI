@@ -1,6 +1,10 @@
 package dev.f2a.addon.skriptwebapi.elements.request.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -16,6 +20,15 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 
+@Name("Set web request body")
+@Description("Set web request body to specified string")
+@Examples("set {_request} to new http request with method \"PATCH\"\n" +
+        "set {_request}'s target url to \"https://domain/\"\n" +
+        "set {_request}'s header \"Custom\" to \"Test\"\n" +
+        "set {_request}'s header \"Content-Type\" to \"application/json\"\n" +
+        "set {_request}'s header \"User-Agent\" to \"SkriptWebAPI/0.1.0\"\n" +
+        "set {_request}'s body to \"{\"\"json\"\":\"\"test\"\"}\"")
+@Since("0.1.0")
 public class EffSetWebRequestBody extends Effect {
 
     static {

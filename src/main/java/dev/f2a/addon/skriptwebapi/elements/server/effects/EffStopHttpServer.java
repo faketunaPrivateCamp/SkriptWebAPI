@@ -15,8 +15,8 @@ import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
 @Name("Stop http server")
-@Description("")
-@Examples("")
+@Description("Stops http server")
+@Examples("stop http server")
 @Since("0.1.0")
 public class EffStopHttpServer extends Effect {
 

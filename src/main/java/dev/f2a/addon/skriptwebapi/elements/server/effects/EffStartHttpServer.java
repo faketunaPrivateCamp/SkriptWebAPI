@@ -15,8 +15,8 @@ import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
 @Name("Start http server")
-@Description("")
-@Examples("")
+@Description("Start http server with custom port and context")
+@Examples("start http server in port 9000 with context \"/\"")
 @Since("0.1.0")
 public class EffStartHttpServer extends Effect {
 
