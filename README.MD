@@ -1,16 +1,9 @@
 # SkriptWebAPI - SKeb
 
-[日本語のREADMEあります](/README_JA.MD)
-
-# Notice
-
-## This addon is abandoned by addon author due to low motivation to Minecraft / Java.
-
-## In the future, I maybe release full rewrite version of this addon. But not decided yet.
-
+[English] [[日本語]](/README_JA.MD)
 # Disclaimer
 
-I will not responsible for loss, trouble etc. caused by using this plugin. Please use at your own risk.
+I will not be responsible for loss, trouble etc. caused by using this plugin. Please use at your own risk.
 
 ## Index
 
@@ -27,20 +20,20 @@ I will not responsible for loss, trouble etc. caused by using this plugin. Pleas
 
 ## About
 
-Allow to use API server feature, Web Request feature easily on Minecraft servers with Skript.
+Simple HTTP Server and Web request feature in Skript easily.
 
 ## Features
 
-- Allow to build HTTP API Server
-- Can send Web Request
+- HTTP Server
+- Web Request
 
 ## Install
 
-Might not be work in spigot server. Please use Paper server or Paper fork server.
+This plugin requires paper server or paper based server.
 
-Now only work with 1.19.3 server. Older version is supporting soon.
+This plugin able to load in 1.13 or higher with Skript 2.7.3 or higher. but only 1.20.2 or higher is officially supported.
 
-1. Download `SkriptWebAPI-<Version>.jar` from [here](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases). Lager number mean recent.
+1. Download `SkriptWebAPI-<Version>.jar` from [here](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases).
 2. Put your downloaded jar to server plugins folder
 3. Run and ready to use
 
@@ -52,14 +45,18 @@ Example and syntax has provided in Skript Hub
 
 ### Important
 
-If you use reply effect in if statement, you need `exit` after reply for avoid error
+If you use reply effect not in end of event you need `exit` after reply for avoid error
 ```sk
 if (something):
     reply %httpexchange% with %string% and response code 200
     exit
+if (something2):
+    reply %httpexchange% with %string% and response code 202
+    exit
+    
 ```
 
-Also you need `reply %httpexchange% as not found` in last line of event
+You should respond the HTTP request otherwise HTTP clients keep waiting for your response.
 ```sk
 on receive get request:
     set {_request} to event-request
@@ -68,11 +65,11 @@ on receive get request:
         reply {_request} with %string% and response code 200
         exit
     
-    reply {_request} as not found
+    reply {_request} with %string% and response code 500
 ```
 
 If someone know forcing this syntax above please open issue.
 
 ## Todo
 
-- Test and allow to load in 1.12.2 ~ 1.19.2
+- None

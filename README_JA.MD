@@ -1,16 +1,10 @@
 # SkriptWebAPI - SKeb
 
-[English readme available](/README.MD)
-
-# Notice
-
-## アドオン作者のMinecraft/Javaに対するモチベーションが限りなく低いためこのアドオンはメンテナンスされません。
-
-## 決まったわけではありませんが、将来的にはコードを1から書き直したバージョンを作成する可能性があります。
+[[English]](/README.MD) [日本語]
 
 # 免責事項
 
-このアドオンを使用した結果発生したいかなる損害にも責任は一切負いません。
+このアドオンを使用した結果発生したいかなる損害にも責任は一切負いません。全て自己責任でご利用ください。
 
 ## 目次
 
@@ -27,17 +21,18 @@
 
 ## 概要
 
-Skriptを使用してMinecraftサーバーにAPIサーバー設置したりとかWeb Request送れるようにします。
+Skriptを使用してMinecraftサーバーにHTTPサーバー設置したりとかWeb Request送れるようにします。
 
 ## 機能
 
-- HTTPのAPIサーバー建てられます
+- HTTPのサーバー建てられます
 - Web request送れます
+
 ## インストール
 
-Spigotサーバーではおそらく動作しません。 Paperサーバーまたはその派生サーバーをご利用ください。
+Paperサーバーかその派生サーバーでのみ動作します。
 
-現在は1.19.3でのみ動作します。今後古いバージョンもサポートする予定です。
+Minecraftのバージョン1.13以降のSkript 2.7.3以降でロードできるようにしていますが、1.20.2以降がサポート対象です。
 
 1. [ここ](https://github.com/faketunaPrivateCamp/SkriptWebAPI/releases) から `SkriptWebAPI-<バージョン>.jar` をダウンロードしてください。 数字が大きい方が新しいです。
 2. ダウンロードしたjarファイルをサーバーのpluginsフォルダに入れてください
@@ -52,14 +47,18 @@ Spigotサーバーではおそらく動作しません。 Paperサーバーま�
 
 ### 重要
 
-IF文の中にreplyが含まれている場合その処理の後のバグを回避するために `exit` を入れてください。
+イベントの処理の最後ではなく、途中でreplyを使う場合はバグを回避するために `exit` を入れてください。
 ```sk
 if (something):
     reply %httpexchange% with %string% and response code 200
     exit
+if (something2):
+    reply %httpexchange% with %string% and response code 202
+    exit
+    
 ```
 
-また `reply %httpexchange% as not found` をイベントの最後の行に入れてください。
+また、どの様な理由があれ必ずレスポンスを送信してください。 でなければ、クライアントがサーバーからのレスポンスを待ち続けることになります。
 ```sk
 on receive get request:
     set {_request} to event-request
@@ -68,9 +67,9 @@ on receive get request:
         reply {_request} with %string% and response code 200
         exit
     
-    reply {_request} as not found
+    reply {_request} with %string% and response code 500
 ```
 
 ## やることリスト
 
-- 1.12.2 ~ 1.19.2での動作を確認しそれらのバージョンで動作できるようにする
+- 無し
