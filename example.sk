@@ -184,29 +184,29 @@ on http request received:
     set http response {_request}'s header "Invisible" to "This header should not be visible because will be deleted after set."
     remove http response {_request}'s header "Invisible"
 
+    set {_returnBody} to ""
+
     if {_method} is "DELETE":
-        reply {_request} with body "{""method"":""DELETE""}" and response code 200
-        exit
+        set {_returnBody} to "{""method"":""DELETE""}"
 
     if {_method} is "GET":
-        reply {_request} with body "{""method"":""GET""}" and response code 200
-        exit
+        set {_returnBody} to "{""method"":""GET""}"
 
     if {_method} is "PATCH":
-        reply {_request} with body "{""method"":""PATCH""}" and response code 200
-        exit
+        set {_returnBody} to "{""method"":""PATCH""}"
 
     if {_method} is "POST":
-        reply {_request} with body "{""method"":""POST""}" and response code 200
-        exit
+        set {_returnBody} to "{""method"":""POST""}"
 
     if {_method} is "PUT":
-        reply {_request} with body "{""method"":""PUT""}" and response code 200
-        exit
+        set {_returnBody} to "{""method"":""PUT""}"
 
-
-    # This will reply 500 without no body
-    reply {_request}
+    broadcast "RETURN BODY: %{_returnBody}%"
+    if {_returnBody} is not "":
+        reply {_request} with body {_returnBody} and response code 200
+    else:
+      # This will reply 500 without body
+        reply {_request}
 
 
 command testreq <string> <string>:
