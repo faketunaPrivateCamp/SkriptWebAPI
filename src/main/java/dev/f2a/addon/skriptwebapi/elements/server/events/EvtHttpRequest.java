@@ -14,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 public class EvtHttpRequest extends SkriptEvent {
 
     static {
-        Skript.registerEvent("", EvtHttpRequest.class, HttpRequestEvent.class, "[skeb] http request [received]")
-                .description("Event dscription")
+        Skript.registerEvent("HTTP request received", EvtHttpRequest.class, HttpRequestEvent.class, "[skeb] http request [received]")
+                .description("Fires when HTTP request received")
                 .examples("on http request received:\n" +
                         "    set {_request} to event-httpexchange\n" +
                         "    set {_method} to http request method of {_request}\n" +
