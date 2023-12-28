@@ -10,31 +10,35 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.google.api.client.http.HttpHeaders;
+import com.google.api.client.http.HttpRequest;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
 @Name("Remove header value")
-@Description("Rewrite")
-@Examples("")
+@Description("Removes header value from web request")
+@Examples("set {_request} to new http request with method \"PUT\"\n" +
+        "set {_request}'s target url to \"https://httpbin.org/put\"\n" +
+        "set {_request}'s header \"Custom\" to \"Test\"\n" +
+        "remove {_request}'s header \"Custom\"")
 @Since("0.1.0")
 public class EffRemoveHeaderValue extends Effect {
 
     static {
         Skript.registerEffect(
                 EffRemoveHeaderValue.class,
-                "[skeb] remove [the] %httpheader%['s] (header|header properties|header prop) %string%"
+                "[skeb] remove [the] %httprequest%['s] (header|header properties|header prop) %string%"
         );
     }
 
-    private Expression<HttpHeaders> httpHeaders;
+    private Expression<HttpRequest> httpRequest;
     private Expression<String> headerKey;
 
     @Override
     protected void execute(Event e) {
-        HttpHeaders headers = httpHeaders.getSingle(e);
+        HttpRequest request = httpRequest.getSingle(e);
         String key = headerKey.getSingle(e);
 
-        if(headers == null) {
+        if(request == null) {
             Skript.error("Provided HttpHeaders instance is null!");
             return;
         }
@@ -43,7 +47,7 @@ public class EffRemoveHeaderValue extends Effect {
             return;
         }
 
-        headers.remove(key);
+        request.getHeaders().remove(key);
     }
 
     @Override
@@ -54,7 +58,7 @@ public class EffRemoveHeaderValue extends Effect {
     @Override
     @SuppressWarnings("unchecked")
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
-        httpHeaders = (Expression<HttpHeaders>) exprs[0];
+        httpRequest = (Expression<HttpRequest>) exprs[0];
         headerKey = (Expression<String>) exprs[1];
         return true;
     }
