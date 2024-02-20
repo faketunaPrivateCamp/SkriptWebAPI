@@ -26,7 +26,7 @@ public class SkebHttpServer {
 
         try {
             var server =  HttpServer.create(new InetSocketAddress(port), 0);
-            server.createContext("/", new SkebHttpHandler());
+            server.createContext(contextPath, new SkebHttpHandler());
             server.start();
             httpServer = server;
             isRunning = true;
