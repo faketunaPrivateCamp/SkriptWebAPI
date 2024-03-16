@@ -54,7 +54,8 @@ public class EffSendHttpResponse extends Effect {
         }
 
         try {
-            exchange.sendResponseHeaders(code, body.length());
+            byte[] bytes = body.getBytes(StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(code, bytes.length);
             exchange.getResponseBody().write(body.getBytes(StandardCharsets.UTF_8));
             exchange.close();
         } catch (IOException ex) {
