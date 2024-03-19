@@ -7,7 +7,7 @@ plugins {
 }
 
 val group = "dev.f2a"
-val pluginVersion = "0.1.1"
+val pluginVersion = "0.1.2"
 val mcVersion = "1.20.2"
 java.sourceCompatibility=JavaVersion.VERSION_17
 
