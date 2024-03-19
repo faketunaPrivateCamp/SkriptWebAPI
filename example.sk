@@ -175,11 +175,13 @@ on http request received:
     set {_body} to http request body of {_request}
     set {_userAgent} to http request {_request} request header value from key "User-Agent"
     set {_path} to http request context path of {_request}
+    set {_remoteIP} to http requester ip address of {_request}
     broadcast "HTTP REQUEST!"
     broadcast "METHOD: %{_method}%"
     broadcast "BDOY: %{_body}%"
     broadcast "UA: %{_userAgent}%"
     broadcast "Context: %{_path}%"
+    broadcast "Remote IP: %{_remoteIP}%"
     set http response {_request}'s header "Custom" to "Custom header"
     set http response {_request}'s header "Invisible" to "This header should not be visible because will be deleted after set."
     remove http response {_request}'s header "Invisible"
