@@ -9,8 +9,8 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import dev.f2a.addon.skriptwebapi.internal.http.SkebHttpServer;
-import dev.f2a.addon.skriptwebapi.internal.http.SkebServerStatus;
+import dev.f2a.addon.skriptwebapi.internal.http.SkweapiHttpServer;
+import dev.f2a.addon.skriptwebapi.internal.http.SkweapiServerStatus;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,14 +23,14 @@ public class EffStopHttpServer extends Effect {
     static {
         Skript.registerEffect(
                 EffStopHttpServer.class,
-                "[skeb] stop http server"
+                "[skweapi] stop http server"
         );
     }
 
 
     @Override
     protected void execute(Event e) {
-        SkebServerStatus status = SkebHttpServer.stopServer();
+        SkweapiServerStatus status = SkweapiHttpServer.stopServer();
 
         switch (status){
             case SERVER_IS_STOPPED -> {

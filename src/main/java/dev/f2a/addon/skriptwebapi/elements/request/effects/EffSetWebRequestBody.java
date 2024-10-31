@@ -34,7 +34,7 @@ public class EffSetWebRequestBody extends Effect {
     static {
         Skript.registerEffect(
                 EffSetWebRequestBody.class,
-                "[skeb] set %httprequest%['s] (body|contents) to %string%"
+                "[skweapi] set %httprequest%['s] (body|contents) to %string%"
         );
     }
 

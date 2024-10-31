@@ -24,7 +24,7 @@ public class EffRemoveHttpResponseHeader extends Effect {
     static {
         Skript.registerEffect(
                 EffRemoveHttpResponseHeader.class,
-                "[skeb] remove [the] (http|api) response %httpexchange%['s] header %string%"
+                "[skweapi] remove [the] (http|api) response %httpexchange%['s] header %string%"
         );
     }
 

@@ -1,4 +1,4 @@
-# SkriptWebAPI - SKeb
+# SkriptWebAPI - Skweapi
 
 [[English]](/README.MD) [日本語]
 
@@ -8,7 +8,7 @@
 
 ## 目次
 
-- [SkriptWebAPI - SKeb](#skriptwebapi---skeb)
+- [SkriptWebAPI - Skweapi](#skriptwebapi---skweapi)
 - [免責事項](#免責事項)
   - [目次](#目次)
   - [概要](#概要)

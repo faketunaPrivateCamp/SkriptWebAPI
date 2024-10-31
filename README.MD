@@ -1,4 +1,4 @@
-# SkriptWebAPI - SKeb
+# SkriptWebAPI - Skweapi
 
 [English] [[日本語]](/README_JA.MD)
 # Disclaimer
@@ -7,7 +7,7 @@ I will not be responsible for loss, trouble etc. caused by using this plugin. Pl
 
 ## Index
 
-- [SkriptWebAPI - SKeb](#skriptwebapi---skeb)
+- [SkriptWebAPI - Skweapi](#skriptwebapi---skweapi)
   - [Disclaimer](#disclaimer)
   - [Index](#index)
   - [About](#about)

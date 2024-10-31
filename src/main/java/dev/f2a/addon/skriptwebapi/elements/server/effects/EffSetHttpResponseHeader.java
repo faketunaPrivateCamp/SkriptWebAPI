@@ -24,7 +24,7 @@ public class EffSetHttpResponseHeader extends Effect {
     static {
         Skript.registerEffect(
                 EffSetHttpResponseHeader.class,
-                "[skeb] set [the] (http|api) response %httpexchange%['s] header %string% to %string%"
+                "[skweapi] set [the] (http|api) response %httpexchange%['s] header %string% to %string%"
         );
     }
 

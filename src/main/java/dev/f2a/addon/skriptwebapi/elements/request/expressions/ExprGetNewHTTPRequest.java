@@ -34,7 +34,7 @@ public class ExprGetNewHTTPRequest extends SimpleExpression<HttpRequest> {
                 HttpRequest.class,
                 ExpressionType.SIMPLE,
                 // set {_something} to response of
-                "[skeb] new http request [with method %-string%]"
+                "[skweapi] new http request [with method %-string%]"
         );
     }
 

@@ -34,7 +34,7 @@ public class ExprGetResponseCode extends SimpleExpression<Integer> {
                 ExprGetResponseCode.class,
                 Integer.class,
                 ExpressionType.SIMPLE,
-                "[skeb] (response|status) code of %httpresponse%"
+                "[skweapi] (response|status) code of %httpresponse%"
         );
     }
 

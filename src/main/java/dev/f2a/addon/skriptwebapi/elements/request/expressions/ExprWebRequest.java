@@ -45,7 +45,7 @@ public class ExprWebRequest extends SimpleExpression<HttpResponse> {
                 HttpResponse.class,
                 ExpressionType.SIMPLE,
                 // set {_something} to response of
-                "[skeb] response of %httprequest%"
+                "[skweapi] response of %httprequest%"
         );
     }
 

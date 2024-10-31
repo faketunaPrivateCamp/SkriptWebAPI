@@ -17,7 +17,7 @@ public class ExprGetHTTPRequestRemoteIP extends SimpleExpression<String> {
                 ExprGetHTTPRequestRemoteIP.class,
                 String.class,
                 ExpressionType.SIMPLE,
-                "[skeb] (http|api) (remote|requester|client) ip [address] of %httpexchange%"
+                "[skweapi] (http|api) (remote|requester|client) ip [address] of %httpexchange%"
         );
     }
 

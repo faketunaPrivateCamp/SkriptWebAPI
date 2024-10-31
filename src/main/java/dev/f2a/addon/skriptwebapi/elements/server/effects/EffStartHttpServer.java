@@ -9,8 +9,8 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import dev.f2a.addon.skriptwebapi.internal.http.SkebHttpServer;
-import dev.f2a.addon.skriptwebapi.internal.http.SkebServerStatus;
+import dev.f2a.addon.skriptwebapi.internal.http.SkweapiHttpServer;
+import dev.f2a.addon.skriptwebapi.internal.http.SkweapiServerStatus;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,7 +23,7 @@ public class EffStartHttpServer extends Effect {
     static {
         Skript.registerEffect(
                 EffStartHttpServer.class,
-                "[skeb] start http server [(in|on) port %-integer%] [[(and|with)] context %-string%]"
+                "[skweapi] start http server [(in|on) port %-integer%] [[(and|with)] context %-string%]"
         );
     }
 
@@ -47,7 +47,7 @@ public class EffStartHttpServer extends Effect {
             context = contextPath.getSingle(e);
         }
 
-        SkebServerStatus status = SkebHttpServer.runServer(port, context);
+        SkweapiServerStatus status = SkweapiHttpServer.runServer(port, context);
 
         switch (status) {
             case SERVER_IS_RUNNING -> {

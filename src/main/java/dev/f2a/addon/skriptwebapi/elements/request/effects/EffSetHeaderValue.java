@@ -26,7 +26,7 @@ public class EffSetHeaderValue extends Effect {
     static {
         Skript.registerEffect(
                 EffSetHeaderValue.class,
-                "[skeb] set [the] %httprequest/httpresponse%['s] (header|header properties|header prop) %string% to %objects%"
+                "[skweapi] set [the] %httprequest/httpresponse%['s] (header|header properties|header prop) %string% to %objects%"
         );
     }
 

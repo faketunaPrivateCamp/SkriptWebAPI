@@ -24,7 +24,7 @@ public class EffSetWebRequestURL extends Effect {
     static {
         Skript.registerEffect(
                 EffSetWebRequestURL.class,
-                "[skeb] set %httprequest%['s] [target] (url|host) to %string%"
+                "[skweapi] set %httprequest%['s] [target] (url|host) to %string%"
         );
     }
 

@@ -28,7 +28,7 @@ public class EffSendHttpResponse extends Effect {
     static {
         Skript.registerEffect(
                 EffSendHttpResponse.class,
-                "[skeb] [reply|response] %httpexchange% [to [the] request sender] [(with|and) body %-string%] [(with|and) response code %-integer%]"
+                "[skweapi] [reply|response] %httpexchange% [to [the] request sender] [(with|and) body %-string%] [(with|and) response code %-integer%]"
         );
     }
 

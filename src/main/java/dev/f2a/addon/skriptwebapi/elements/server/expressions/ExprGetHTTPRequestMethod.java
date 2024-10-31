@@ -27,7 +27,7 @@ public class ExprGetHTTPRequestMethod extends SimpleExpression<String> {
                 ExprGetHTTPRequestMethod.class,
                 String.class,
                 ExpressionType.SIMPLE,
-                "[skeb] (http|api) request method of %httpexchange%"
+                "[skweapi] (http|api) request method of %httpexchange%"
         );
     }
 

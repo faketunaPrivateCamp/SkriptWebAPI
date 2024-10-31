@@ -26,7 +26,7 @@ public class EffRemoveHeaderValue extends Effect {
     static {
         Skript.registerEffect(
                 EffRemoveHeaderValue.class,
-                "[skeb] remove [the] %httprequest%['s] (header|header properties|header prop) %string%"
+                "[skweapi] remove [the] %httprequest%['s] (header|header properties|header prop) %string%"
         );
     }
 

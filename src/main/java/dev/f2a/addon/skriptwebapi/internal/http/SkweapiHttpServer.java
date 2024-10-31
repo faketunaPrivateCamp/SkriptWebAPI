@@ -10,7 +10,7 @@ import org.bukkit.Bukkit;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-public class SkebHttpServer {
+public class SkweapiHttpServer {
 
     private static boolean isRunning = false;
     private static HttpServer httpServer;
@@ -19,32 +19,32 @@ public class SkebHttpServer {
         return isRunning;
     }
 
-    public static SkebServerStatus runServer(int port, String contextPath) {
-        if(isRunning) return SkebServerStatus.SERVER_IS_RUNNING;
-        if(!contextPath.startsWith("/")) return SkebServerStatus.CONTEXT_PATH_NOT_START_WITH_SLASH;
-        if(!contextPath.endsWith("/")) return SkebServerStatus.CONTEXT_PATH_NOT_END_WITH_SLASH;
+    public static SkweapiServerStatus runServer(int port, String contextPath) {
+        if(isRunning) return SkweapiServerStatus.SERVER_IS_RUNNING;
+        if(!contextPath.startsWith("/")) return SkweapiServerStatus.CONTEXT_PATH_NOT_START_WITH_SLASH;
+        if(!contextPath.endsWith("/")) return SkweapiServerStatus.CONTEXT_PATH_NOT_END_WITH_SLASH;
 
         try {
             var server =  HttpServer.create(new InetSocketAddress(port), 0);
-            server.createContext(contextPath, new SkebHttpHandler());
+            server.createContext(contextPath, new SkweapiHttpHandler());
             server.start();
             httpServer = server;
             isRunning = true;
         } catch (IOException e) {
             e.printStackTrace();
-            return SkebServerStatus.EXCEPTION_OCCURRED;
+            return SkweapiServerStatus.EXCEPTION_OCCURRED;
         }
-        return SkebServerStatus.OPERATION_SUCCESS;
+        return SkweapiServerStatus.OPERATION_SUCCESS;
     }
 
-    public static SkebServerStatus stopServer() {
-        if(!isRunning) return SkebServerStatus.SERVER_IS_STOPPED;
+    public static SkweapiServerStatus stopServer() {
+        if(!isRunning) return SkweapiServerStatus.SERVER_IS_STOPPED;
         httpServer.stop(0);
         isRunning = false;
-        return SkebServerStatus.OPERATION_SUCCESS;
+        return SkweapiServerStatus.OPERATION_SUCCESS;
     }
 
-    private static class SkebHttpHandler implements HttpHandler {
+    private static class SkweapiHttpHandler implements HttpHandler {
 
         @Override
         public void handle(HttpExchange exchange) throws IOException {

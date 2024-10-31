@@ -31,12 +31,12 @@ bukkit {
 
     apiVersion = "1.13"
 
-    name = "SKeb"
+    name = "Skweapi"
     authors = listOf("ft")
     description = "Web request and HTTP Server addon for Skript"
     version = pluginVersion
     depend = listOf("Skript")
-    prefix = "SKeb"
+    prefix = "Skweapi"
 
     /*
     permissions {

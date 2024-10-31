@@ -24,7 +24,7 @@ public class EffSetWebRequestMethod extends Effect {
     static {
         Skript.registerEffect(
                 EffSetWebRequestMethod.class,
-                "[skeb] set %httprequest%['s] [request] method to %string%"
+                "[skweapi] set %httprequest%['s] [request] method to %string%"
         );
     }
 

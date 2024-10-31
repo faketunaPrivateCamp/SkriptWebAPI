@@ -27,7 +27,7 @@ public class ExprGetHTTPRequestContextPath extends SimpleExpression<String> {
                 ExprGetHTTPRequestContextPath.class,
                 String.class,
                 ExpressionType.SIMPLE,
-                "[skeb] (http|api) request (context path|context|path|contextpath) of %httpexchange%"
+                "[skweapi] (http|api) request (context path|context|path|contextpath) of %httpexchange%"
         );
     }
 

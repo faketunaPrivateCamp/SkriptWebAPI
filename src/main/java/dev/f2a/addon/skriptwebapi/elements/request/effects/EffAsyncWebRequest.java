@@ -47,7 +47,7 @@ public class EffAsyncWebRequest extends Effect {
     static {
         Skript.registerEffect(
                 EffAsyncWebRequest.class,
-                "[skeb] send [async] web request [(using|with)] %httprequest%"
+                "[skweapi] send [async] web request [(using|with)] %httprequest%"
         );
     }
 

@@ -27,7 +27,7 @@ public class ExprGetHTTPRequestHeaderValue extends SimpleExpression<String> {
                 ExprGetHTTPRequestHeaderValue.class,
                 String.class,
                 ExpressionType.SIMPLE,
-                "[skeb] (http|api) request %httpexchange%['s] [request] header value from key %string%"
+                "[skweapi] (http|api) request %httpexchange%['s] [request] header value from key %string%"
         );
     }
 

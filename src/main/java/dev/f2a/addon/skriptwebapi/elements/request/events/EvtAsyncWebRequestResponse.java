@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 public class EvtAsyncWebRequestResponse extends SkriptEvent {
 
     static {
-        Skript.registerEvent("Async web request response", EvtAsyncWebRequestResponse.class, WebRequestResponseEvent.class, "[skeb] [async] web request response")
+        Skript.registerEvent("Async web request response", EvtAsyncWebRequestResponse.class, WebRequestResponseEvent.class, "[skweapi] [async] web request response")
                 .description("Fires when web request response received")
                 .examples("on web request response:\n" +
                         "    set {_response} to event-httpresponse\n" +

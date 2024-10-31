@@ -34,7 +34,7 @@ public class ExprGetResponseBody extends SimpleExpression<String> {
                 ExprGetResponseBody.class,
                 String.class,
                 ExpressionType.SIMPLE,
-                "[skeb] body of %httpresponse%"
+                "[skweapi] body of %httpresponse%"
         );
     }
 
